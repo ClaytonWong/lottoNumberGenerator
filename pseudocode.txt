@@ -1,0 +1,6 @@
+1) Create an array of intergers e.g [1, 2, 3]
+2) Generate random number from 0 to last index for array
+3) Get copy of integer at previously generated index
+4) Remove integer from array
+5) Repeat from step 2 until you have gotten desired number
+   of integers from array.
