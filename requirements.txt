@@ -1,0 +1,9 @@
+﻿* Has code to generate random numbers.
+* When generating numbers for a game, the pool of numbers to pick from gets
+  smaller as more numbers are drawn out, this will prevent the same number from
+  being drawn out 2 or more times for a game. e.g., if you have the numbers
+  1, 2, and 3 and you draw the number 3, then you will only have numbers 1 and
+  2 to choose from for next time.
+* User can choose the range of random numbers to choose from, e.g. from 1 to 20
+  inclusive.
+* User can choose to generate numbers for multiple games.
