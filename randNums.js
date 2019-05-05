@@ -7,15 +7,17 @@ function randomIntFromInterval(min, max)
 // Create array of integers from minCount to maxCount
 let intsArray = [];
 let mincount = 1;
-let maxCount = 2;
+let maxCount = 3;
 
 for(let count = mincount; count <= maxCount; count++) {
   intsArray.push(count);
 }
 
-console.log(intsArray);
+// Pick a random index from intsArray
+let minIndex = 0;
+let maxIndex = intsArray.length - 1;
+let myRandNum = randomIntFromInterval(minIndex, maxIndex);
+console.log(myRandNum);
 
-let min = 1;
-let max = 3;
-let myRandNum = randomIntFromInterval(min, max);
+
 
