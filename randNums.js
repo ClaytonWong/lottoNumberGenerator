@@ -7,7 +7,7 @@ function randomIntFromInterval(min, max)
 // Create array of integers from minCount to maxCount
 let intsArray = [];
 let mincount = 1;
-let maxCount = 3;
+let maxCount = 2;
 
 for(let count = mincount; count <= maxCount; count++) {
   intsArray.push(count);
@@ -17,7 +17,12 @@ for(let count = mincount; count <= maxCount; count++) {
 let minIndex = 0;
 let maxIndex = intsArray.length - 1;
 let myRandNum = randomIntFromInterval(minIndex, maxIndex);
-console.log(myRandNum);
 
+// Get copy of integer at previously generated index
+let copyOfRandInt = intsArray[myRandNum];
 
-
+// Remove integer from array
+intsArray.splice(myRandNum, 1);
+console.log(`myRandNum/Random Index: ${myRandNum}`);
+console.log(`copyOfRandInt: ${copyOfRandInt}`);
+console.log(`intsArray: ${intsArray}`);
