@@ -4,3 +4,5 @@
 4) Remove integer from array
 5) Repeat from step 2 until you have gotten desired number
    of integers from array.
+6) Repeat from step 1 until you have gotten desired number
+   of groups of integers from array.
