@@ -10,3 +10,4 @@
 * Validations:
   * Number of sets of random integers needed should be 1 or higher.
   * Minimum number in range should be less than maximum number in range
+  * Number of random integers needed per set should be 1 or higher.
