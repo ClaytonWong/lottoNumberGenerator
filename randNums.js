@@ -37,10 +37,12 @@ function randomIntsFromIntsArray(minCount, maxCount, NumOfRandIntsNeeded) {
     // Remove integer from array
     intsArray.splice(randIndex, 1);
 
+    /*
     console.log(`randIndex: ${randIndex}`);
     console.log(`copyOfRandInt: ${copyOfRandInt}`);
     console.log(`intsArray: ${intsArray}`);
     console.log(`---------------`);
+    */
 
     NumOfRandIntsNeeded--;
   }
@@ -48,4 +50,7 @@ function randomIntsFromIntsArray(minCount, maxCount, NumOfRandIntsNeeded) {
   return randIntsChosen;
 }
 
-console.log("Random ints chosen:", randomIntsFromIntsArray(1, 3, 2), "*");
+let groupsOfRandIntsNeeded = 3;
+for(let count = groupsOfRandIntsNeeded; count > 0; count--) {
+  console.log("Random ints chosen:", randomIntsFromIntsArray(1, 45, 7));
+}
