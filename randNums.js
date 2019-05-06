@@ -50,7 +50,12 @@ function randomIntsFromIntsArray(minCount, maxCount, NumOfRandIntsNeeded) {
   return randIntsChosen;
 }
 
-let groupsOfRandIntsNeeded = 3;
-for(let count = groupsOfRandIntsNeeded; count > 0; count--) {
-  console.log("Random ints chosen:", randomIntsFromIntsArray(1, 45, 7));
+let groupsOfRandIntsNeeded = 2;
+if (groupsOfRandIntsNeeded < 1) {
+  console.log("ERROR: Group(s) of random integers wanted is less than 1.");
+}
+else {
+  for(let count = groupsOfRandIntsNeeded; count > 0; count--) {
+    console.log("Random ints chosen:", randomIntsFromIntsArray(1, 45, 7));
+  }
 }
