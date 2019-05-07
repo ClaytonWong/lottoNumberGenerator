@@ -37,25 +37,41 @@ function randomIntsFromIntsArray(minCount, maxCount, NumOfRandIntsNeeded) {
     // Remove integer from array
     intsArray.splice(randIndex, 1);
 
-    /*
-    console.log(`randIndex: ${randIndex}`);
-    console.log(`copyOfRandInt: ${copyOfRandInt}`);
-    console.log(`intsArray: ${intsArray}`);
-    console.log(`---------------`);
-    */
-
     NumOfRandIntsNeeded--;
   }
-
   return randIntsChosen;
 }
 
-let groupsOfRandIntsNeeded = 2;
-if (groupsOfRandIntsNeeded < 1) {
-  console.log("ERROR: Group(s) of random integers wanted is less than 1.");
+let groupsOfRandIntsNeededGlobal = 1;
+let minCountGlobal = 1;
+let maxCountGlobal = 45;
+let NumOfRandIntsNeededGlobal = 7;
+
+if (groupsOfRandIntsNeededGlobal < 1 || minCountGlobal >= maxCountGlobal || NumOfRandIntsNeededGlobal < 1) {
+  let errors = [];
+
+  // Put appropriate error string into errors array depending on values of parameters,
+  if (groupsOfRandIntsNeededGlobal < 1 ) {
+    errors.push("Group(s) of random integers wanted is less than 1.");
+  }
+
+  if(minCountGlobal >= maxCountGlobal) {
+    errors.push("Minimum number in range is equal to or greater than maximum number in range.");
+  }
+
+  if(NumOfRandIntsNeededGlobal < 1) {
+    errors.push("Number of random integers wanted per set is less than 1.");
+  }
+
+  console.log("ERROR: 1 or more invalid input given.");
+  
+  // List errors one by 1
+  errors.forEach(error => {
+    console.log(error);
+  });
 }
 else {
-  for(let count = groupsOfRandIntsNeeded; count > 0; count--) {
-    console.log("Random ints chosen:", randomIntsFromIntsArray(1, 45, 7));
+  for(let count = groupsOfRandIntsNeededGlobal; count > 0; count--) {
+    console.log("Random ints chosen:", randomIntsFromIntsArray(minCountGlobal, maxCountGlobal, NumOfRandIntsNeededGlobal));
   }
 }
