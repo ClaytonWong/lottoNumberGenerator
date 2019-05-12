@@ -8,7 +8,8 @@
   inclusive.
 * User can choose to generate numbers for multiple games.
 * Validations:
-  * Number of sets of random integers needed should be 1 or higher.
+  * Number of games should be 1 or higher.
   * Minimum number in range should be less than maximum number in range
-  * Number of random integers needed per set should be 1 or higher.
+  * Number of random integers needed per game should be 1 or higher.
 * Give the user the option to sort the random numbers generated.
+* Allow for the generation of 2 sets of random integers per game.
