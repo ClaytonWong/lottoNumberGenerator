@@ -47,41 +47,66 @@ function randomIntsFromIntsArray(minCount, maxCount, numOfRandIntsNeeded, sort) 
   return randIntsChosen;
 }
 
-let numOfGamesGlobal = 1;
-let sortGlobal = false; // Boolean to see if user wants random ints to be sorted
-let secondSetNeededGlobal = false; // Boolean to see if user wants 2 sets of random ints per game
+let numOfGamesGlobal = 4;
+let sortGlobal = true; // Boolean to see if user wants random ints to be sorted
+let secondSetNeededGlobal = true; // Boolean to see if user wants 2 sets of random ints per game
+let errorsGlobal = []; // Array to hold error messages
 let minCountSet1Global = 1;
-let maxCountSet1Global = 45;
-let numOfRandIntsNeededSet1Global = 7;
+let maxCountSet1Global = 35;
+let numOfRandIntsNeededSet1Global = 6;
 let minCountSet2Global = 1;
-let maxCountSet2Global = 45;
-let numOfRandIntsNeededSet2Global = 7;
+let maxCountSet2Global = 20;
+let numOfRandIntsNeededSet2Global = 1;
 
-if (numOfGamesGlobal < 1 || minCountSet1Global >= maxCountSet1Global || numOfRandIntsNeededSet1Global < 1) {
-  let errors = [];
+// Put appropriate error string into errorsGlobal array depending on values of certain global variables
 
-  // Put appropriate error string into errors array depending on values of parameters,
-  if (numOfGamesGlobal < 1 ) {
-    errors.push("Group(s) of random integers wanted is less than 1.");
+if (numOfGamesGlobal < 1 ) {
+  errorsGlobal.push("Number of games is less than 1.");
+}
+
+if(minCountSet1Global >= maxCountSet1Global) {
+  errorsGlobal.push("Minimum number in range is equal to or greater than maximum number in range for set1.");
+}
+
+if(numOfRandIntsNeededSet1Global < 1) {
+  errorsGlobal.push("Number of random integers wanted for set1 is less than 1.");
+}
+
+// If you need second set of random integers, check values of more global variables 
+if (secondSetNeededGlobal === true) {
+  if(minCountSet2Global >= maxCountSet2Global) {
+    errorsGlobal.push("Minimum number in range is equal to or greater than maximum number in range for set2.");
   }
-
-  if(minCountSet1Global >= maxCountSet1Global) {
-    errors.push("Minimum number in range is equal to or greater than maximum number in range.");
-  }
-
-  if(numOfRandIntsNeededSet1Global < 1) {
-    errors.push("Number of random integers wanted per set is less than 1.");
-  }
-
-  console.log("ERROR: 1 or more invalid input given.");
   
-  // List errors one by 1
-  errors.forEach(error => {
+  if(numOfRandIntsNeededSet2Global < 1) {
+    errorsGlobal.push("Number of random integers wanted for set2 is less than 1.");
+  } 
+}
+
+// If there are error messages to show
+if (errorsGlobal.length > 0) { 
+  console.log("ERROR: 1 or more invalid input(s) given.");
+  // List errors one by one
+  errorsGlobal.forEach(error => {
     console.log(error);
   });
 }
 else {
-  for(let count = numOfGamesGlobal; count > 0; count--) {
-    console.log("Random ints chosen:", randomIntsFromIntsArray(minCountSet1Global, maxCountSet1Global, numOfRandIntsNeededSet1Global, sortGlobal));
+  if (secondSetNeededGlobal === true) {
+    for(let count = 1; count <= numOfGamesGlobal; count++) {
+      console.log(`
+      Game ${count} 
+      Random ints chosen set 1: ${randomIntsFromIntsArray(minCountSet1Global, maxCountSet1Global, numOfRandIntsNeededSet1Global, sortGlobal)}
+      Random ints chosen set 2: ${randomIntsFromIntsArray(minCountSet2Global, maxCountSet2Global, numOfRandIntsNeededSet2Global, sortGlobal)}
+      `);
+    }
+  }
+  else {
+    for(let count = 1; count <= numOfGamesGlobal; count++) {
+      console.log(`
+      Game ${count} 
+      Random ints chosen set 1: ${randomIntsFromIntsArray(minCountSet1Global, maxCountSet1Global, numOfRandIntsNeededSet1Global, sortGlobal)}
+      `);
+    }
   }
 }
