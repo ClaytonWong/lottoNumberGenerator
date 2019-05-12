@@ -8,7 +8,7 @@ function randomIntFromInterval(min, max)
 Function to pick random integers from an array of integers in order
 from mincount to maxcount
 */
-function randomIntsFromIntsArray(minCount, maxCount, NumOfRandIntsNeeded) {
+function randomIntsFromIntsArray(minCount, maxCount, NumOfRandIntsNeeded, sort) {
   // Create array of integers from minCount to maxCount
   let intsArray = [];
   
@@ -39,6 +39,11 @@ function randomIntsFromIntsArray(minCount, maxCount, NumOfRandIntsNeeded) {
 
     NumOfRandIntsNeeded--;
   }
+
+  if(sort === true) {
+    randIntsChosen = randIntsChosen.sort((a, b) => a - b);
+  }
+
   return randIntsChosen;
 }
 
@@ -46,6 +51,7 @@ let groupsOfRandIntsNeededGlobal = 1;
 let minCountGlobal = 1;
 let maxCountGlobal = 45;
 let NumOfRandIntsNeededGlobal = 7;
+let sort = false; // Boolean to see if user wants random ints to be sorted 
 
 if (groupsOfRandIntsNeededGlobal < 1 || minCountGlobal >= maxCountGlobal || NumOfRandIntsNeededGlobal < 1) {
   let errors = [];
@@ -72,6 +78,6 @@ if (groupsOfRandIntsNeededGlobal < 1 || minCountGlobal >= maxCountGlobal || NumO
 }
 else {
   for(let count = groupsOfRandIntsNeededGlobal; count > 0; count--) {
-    console.log("Random ints chosen:", randomIntsFromIntsArray(minCountGlobal, maxCountGlobal, NumOfRandIntsNeededGlobal));
+    console.log("Random ints chosen:", randomIntsFromIntsArray(minCountGlobal, maxCountGlobal, NumOfRandIntsNeededGlobal, sort));
   }
 }
