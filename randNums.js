@@ -8,7 +8,7 @@ function randomIntFromInterval(min, max)
 Function to pick random integers from an array of integers in order
 from mincount to maxcount
 */
-function randomIntsFromIntsArray(minCount, maxCount, NumOfRandIntsNeeded, sort) {
+function randomIntsFromIntsArray(minCount, maxCount, numOfRandIntsNeeded, sort) {
   // Create array of integers from minCount to maxCount
   let intsArray = [];
   
@@ -22,7 +22,7 @@ function randomIntsFromIntsArray(minCount, maxCount, NumOfRandIntsNeeded, sort) 
   let copyOfRandInt;
   let randIntsChosen = [];
 
-  while(NumOfRandIntsNeeded > 0) {
+  while(numOfRandIntsNeeded > 0) {
     maxIndex = intsArray.length - 1;
     
     // Pick a random index from intsArray
@@ -37,7 +37,7 @@ function randomIntsFromIntsArray(minCount, maxCount, NumOfRandIntsNeeded, sort) 
     // Remove integer from array
     intsArray.splice(randIndex, 1);
 
-    NumOfRandIntsNeeded--;
+    numOfRandIntsNeeded--;
   }
 
   if(sort === true) {
@@ -48,12 +48,16 @@ function randomIntsFromIntsArray(minCount, maxCount, NumOfRandIntsNeeded, sort) 
 }
 
 let numOfGamesGlobal = 1;
-let minCountGlobal = 1;
-let maxCountGlobal = 45;
-let NumOfRandIntsNeededGlobal = 7;
-let sort = false; // Boolean to see if user wants random ints to be sorted 
+let sortGlobal = false; // Boolean to see if user wants random ints to be sorted
+let secondSetNeededGlobal = false; // Boolean to see if user wants 2 sets of random ints per game
+let minCountSet1Global = 1;
+let maxCountSet1Global = 45;
+let numOfRandIntsNeededSet1Global = 7;
+let minCountSet2Global = 1;
+let maxCountSet2Global = 45;
+let numOfRandIntsNeededSet2Global = 7;
 
-if (numOfGamesGlobal < 1 || minCountGlobal >= maxCountGlobal || NumOfRandIntsNeededGlobal < 1) {
+if (numOfGamesGlobal < 1 || minCountSet1Global >= maxCountSet1Global || numOfRandIntsNeededSet1Global < 1) {
   let errors = [];
 
   // Put appropriate error string into errors array depending on values of parameters,
@@ -61,11 +65,11 @@ if (numOfGamesGlobal < 1 || minCountGlobal >= maxCountGlobal || NumOfRandIntsNee
     errors.push("Group(s) of random integers wanted is less than 1.");
   }
 
-  if(minCountGlobal >= maxCountGlobal) {
+  if(minCountSet1Global >= maxCountSet1Global) {
     errors.push("Minimum number in range is equal to or greater than maximum number in range.");
   }
 
-  if(NumOfRandIntsNeededGlobal < 1) {
+  if(numOfRandIntsNeededSet1Global < 1) {
     errors.push("Number of random integers wanted per set is less than 1.");
   }
 
@@ -78,6 +82,6 @@ if (numOfGamesGlobal < 1 || minCountGlobal >= maxCountGlobal || NumOfRandIntsNee
 }
 else {
   for(let count = numOfGamesGlobal; count > 0; count--) {
-    console.log("Random ints chosen:", randomIntsFromIntsArray(minCountGlobal, maxCountGlobal, NumOfRandIntsNeededGlobal, sort));
+    console.log("Random ints chosen:", randomIntsFromIntsArray(minCountSet1Global, maxCountSet1Global, numOfRandIntsNeededSet1Global, sortGlobal));
   }
 }
