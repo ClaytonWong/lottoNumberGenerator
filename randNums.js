@@ -47,17 +47,17 @@ function randomIntsFromIntsArray(minCount, maxCount, NumOfRandIntsNeeded, sort) 
   return randIntsChosen;
 }
 
-let groupsOfRandIntsNeededGlobal = 1;
+let numOfGamesGlobal = 1;
 let minCountGlobal = 1;
 let maxCountGlobal = 45;
 let NumOfRandIntsNeededGlobal = 7;
 let sort = false; // Boolean to see if user wants random ints to be sorted 
 
-if (groupsOfRandIntsNeededGlobal < 1 || minCountGlobal >= maxCountGlobal || NumOfRandIntsNeededGlobal < 1) {
+if (numOfGamesGlobal < 1 || minCountGlobal >= maxCountGlobal || NumOfRandIntsNeededGlobal < 1) {
   let errors = [];
 
   // Put appropriate error string into errors array depending on values of parameters,
-  if (groupsOfRandIntsNeededGlobal < 1 ) {
+  if (numOfGamesGlobal < 1 ) {
     errors.push("Group(s) of random integers wanted is less than 1.");
   }
 
@@ -77,7 +77,7 @@ if (groupsOfRandIntsNeededGlobal < 1 || minCountGlobal >= maxCountGlobal || NumO
   });
 }
 else {
-  for(let count = groupsOfRandIntsNeededGlobal; count > 0; count--) {
+  for(let count = numOfGamesGlobal; count > 0; count--) {
     console.log("Random ints chosen:", randomIntsFromIntsArray(minCountGlobal, maxCountGlobal, NumOfRandIntsNeededGlobal, sort));
   }
 }
