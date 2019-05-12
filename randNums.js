@@ -86,6 +86,7 @@ if (secondSetNeededGlobal === true) {
 // If there are error messages to show
 if (errorsGlobal.length > 0) { 
   console.log("ERROR: 1 or more invalid input(s) given.");
+  
   // List errors one by one
   errorsGlobal.forEach(error => {
     console.log(error);
