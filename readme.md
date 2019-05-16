@@ -29,5 +29,5 @@ node randNums.js
 
 ## Background 
 At the moment this project is still a work in progress and is "backend/commandline
-only". My intention to eventually create a frontend with styling for it using
+only". My intention is to eventually create a frontend with styling for it using
 HTML and CSS.  
