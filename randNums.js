@@ -53,10 +53,10 @@ let secondSetNeededGlobal = true; // Boolean to see if user wants 2 sets of rand
 let errorsGlobal = []; // Array to hold error messages
 let minCountSet1Global = 1;
 let maxCountSet1Global = 35;
-let numOfRandIntsNeededSet1Global = 6;
+let numOfRandIntsNeededSet1Global = 36;
 let minCountSet2Global = 1;
 let maxCountSet2Global = 20;
-let numOfRandIntsNeededSet2Global = 1;
+let numOfRandIntsNeededSet2Global = 21;
 
 // Put appropriate error string into errorsGlobal array depending on values of certain global variables
 
@@ -72,6 +72,10 @@ if(numOfRandIntsNeededSet1Global < 1) {
   errorsGlobal.push("Number of random integers wanted for set1 is less than 1.");
 }
 
+if(numOfRandIntsNeededSet1Global >= maxCountSet1Global) {
+  errorsGlobal.push("Number of random integers wanted for set1 is greater than or equal to maximum number in range for set1.");
+}
+
 // If you need second set of random integers, check values of more global variables 
 if (secondSetNeededGlobal === true) {
   if(minCountSet2Global >= maxCountSet2Global) {
@@ -80,7 +84,11 @@ if (secondSetNeededGlobal === true) {
   
   if(numOfRandIntsNeededSet2Global < 1) {
     errorsGlobal.push("Number of random integers wanted for set2 is less than 1.");
-  } 
+  }
+
+  if(numOfRandIntsNeededSet2Global >= maxCountSet2Global) {
+    errorsGlobal.push("Number of random integers wanted for set2 is greater than or equal to maximum number in range for set2.");
+  }
 }
 
 // If there are error messages to show
