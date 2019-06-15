@@ -11,5 +11,6 @@
   * Number of games should be 1 or higher.
   * Minimum number in range should be less than maximum number in range
   * Number of random integers needed per game should be 1 or higher.
+  * Number of random integers needed per game should be less than maximum number in range
 * Give the user the option to sort the random numbers generated.
 * Allow for the generation of 2 sets of random integers per game.
