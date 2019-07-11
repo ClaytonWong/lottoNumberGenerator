@@ -47,75 +47,99 @@ function randomIntsFromIntsArray(minCount, maxCount, numOfRandIntsNeeded, sort) 
   return randIntsChosen;
 }
 
-let numOfGamesGlobal = 4;
-let sortGlobal = true; // Boolean to see if user wants random ints to be sorted
-let secondSetNeededGlobal = true; // Boolean to see if user wants 2 sets of random ints per game
-let errorsGlobal = []; // Array to hold error messages
-let minCountSet1Global = 1;
-let maxCountSet1Global = 35;
-let numOfRandIntsNeededSet1Global = 36;
-let minCountSet2Global = 1;
-let maxCountSet2Global = 20;
-let numOfRandIntsNeededSet2Global = 21;
+function generateLottoNumbers() {
+  let numOfGames = 4;
+  let sort = true; // Boolean to see if user wants random ints to be sorted
+  let secondSetNeeded = true; // Boolean to see if user wants 2 sets of random ints per game
+  let errors = []; // Array to hold error messages
+  let minCountSet1 = 1;
+  let maxCountSet1 = 35;
+  let numOfRandIntsNeededSet1 = 36;
+  let minCountSet2 = 1;
+  let maxCountSet2 = 20;
+  let numOfRandIntsNeededSet2 = 21;
 
-// Put appropriate error string into errorsGlobal array depending on values of certain global variables
+  // Put appropriate error string into errors array depending on values of certain global variables
 
-if (numOfGamesGlobal < 1 ) {
-  errorsGlobal.push("Number of games is less than 1.");
-}
-
-if(minCountSet1Global >= maxCountSet1Global) {
-  errorsGlobal.push("Minimum number in range is equal to or greater than maximum number in range for set1.");
-}
-
-if(numOfRandIntsNeededSet1Global < 1) {
-  errorsGlobal.push("Number of random integers wanted for set1 is less than 1.");
-}
-
-if(numOfRandIntsNeededSet1Global >= maxCountSet1Global) {
-  errorsGlobal.push("Number of random integers wanted for set1 is greater than or equal to maximum number in range for set1.");
-}
-
-// If you need second set of random integers, check values of more global variables 
-if (secondSetNeededGlobal === true) {
-  if(minCountSet2Global >= maxCountSet2Global) {
-    errorsGlobal.push("Minimum number in range is equal to or greater than maximum number in range for set2.");
-  }
-  
-  if(numOfRandIntsNeededSet2Global < 1) {
-    errorsGlobal.push("Number of random integers wanted for set2 is less than 1.");
+  if (numOfGames < 1 ) {
+    errors.push("Number of games is less than 1.");
   }
 
-  if(numOfRandIntsNeededSet2Global >= maxCountSet2Global) {
-    errorsGlobal.push("Number of random integers wanted for set2 is greater than or equal to maximum number in range for set2.");
+  if(minCountSet1 >= maxCountSet1) {
+    errors.push("Minimum number in range is equal to or greater than maximum number in range for set1.");
   }
-}
 
-// If there are error messages to show
-if (errorsGlobal.length > 0) { 
-  console.log("ERROR: 1 or more invalid input(s) given.");
-  
-  // List errors one by one
-  errorsGlobal.forEach(error => {
-    console.log(error);
-  });
-}
-else {
-  if (secondSetNeededGlobal === true) {
-    for(let count = 1; count <= numOfGamesGlobal; count++) {
-      console.log(`
-      Game ${count} 
-      Random ints chosen set 1: ${randomIntsFromIntsArray(minCountSet1Global, maxCountSet1Global, numOfRandIntsNeededSet1Global, sortGlobal)}
-      Random ints chosen set 2: ${randomIntsFromIntsArray(minCountSet2Global, maxCountSet2Global, numOfRandIntsNeededSet2Global, sortGlobal)}
-      `);
+  if(numOfRandIntsNeededSet1 < 1) {
+    errors.push("Number of random integers wanted for set1 is less than 1.");
+  }
+
+  if(numOfRandIntsNeededSet1 >= maxCountSet1) {
+    errors.push("Number of random integers wanted for set1 is greater than or equal to maximum number in range for set1.");
+  }
+
+  // If you need second set of random integers, check values of more global variables 
+  if (secondSetNeeded === true) {
+    if(minCountSet2 >= maxCountSet2) {
+      errors.push("Minimum number in range is equal to or greater than maximum number in range for set2.");
+    }
+    
+    if(numOfRandIntsNeededSet2 < 1) {
+      errors.push("Number of random integers wanted for set2 is less than 1.");
+    }
+
+    if(numOfRandIntsNeededSet2 >= maxCountSet2) {
+      errors.push("Number of random integers wanted for set2 is greater than or equal to maximum number in range for set2.");
     }
   }
+
+  // If there are error messages to show
+  if (errors.length > 0) {
+    /*
+    console.log("ERROR: 1 or more invalid input(s) given.");
+    
+    // List errors one by one
+    errors.forEach(error => {
+      console.log(error);
+    });
+    */
+    // For each item in todo list create a list item
+    todoList.todos.forEach(function(todo, position) {
+      var todoLi = document.createElement('li');
+      var todoTextWithCompletion = '';
+
+      if (todo.completed === true) {
+        todoTextWithCompletion = '(x) ' + todo.todoText;
+      }
+      else {
+        todoTextWithCompletion = '( ) ' + todo.todoText;
+      }
+
+      todoLi.id = position;
+      todoLi.textContent = todoTextWithCompletion;
+      todoLi.appendChild(this.createDeleteButton());
+      todosUl.appendChild(todoLi);
+    }, this)  // need to include 'this' here to refer to
+              // object in todo method in view object
+      // this // refers to iew object
+      // forEach(callback, this)
+  }
   else {
-    for(let count = 1; count <= numOfGamesGlobal; count++) {
-      console.log(`
-      Game ${count} 
-      Random ints chosen set 1: ${randomIntsFromIntsArray(minCountSet1Global, maxCountSet1Global, numOfRandIntsNeededSet1Global, sortGlobal)}
-      `);
+    if (secondSetNeeded === true) {
+      for(let count = 1; count <= numOfGames; count++) {
+        console.log(`
+        Game ${count} 
+        Random ints chosen set 1: ${randomIntsFromIntsArray(minCountSet1, maxCountSet1, numOfRandIntsNeededSet1, sort)}
+        Random ints chosen set 2: ${randomIntsFromIntsArray(minCountSet2, maxCountSet2, numOfRandIntsNeededSet2, sort)}
+        `);
+      }
+    }
+    else {
+      for(let count = 1; count <= numOfGames; count++) {
+        console.log(`
+        Game ${count} 
+        Random ints chosen set 1: ${randomIntsFromIntsArray(minCountSet1, maxCountSet1, numOfRandIntsNeededSet1, sort)}
+        `);
+      }
     }
   }
 }

@@ -26,48 +26,48 @@
 
       <form>
         <div class="field">
-          <label for="numOfGamesGlobal">* How many games do you want to play?</label>
-          <input id="numOfGamesGlobal" type="number" name="numOfGamesGlobal" required>
+          <label for="numOfGames">* How many games do you want to play?</label>
+          <input id="numOfGames" type="number" name="numOfGames" required>
         </div>
         
         <div class="field">
-          <label for="sortGlobal">Sort lotto numbers given</label>
-          <input id="sortGlobal" type="checkbox" name="sortGlobal">
+          <label for="sort">Sort lotto numbers given</label>
+          <input id="sort" type="checkbox" name="sort">
         </div>
 
         <div class="field">
-          <label for="secondSetNeededGlobal">Special number(s) required, e.g. a "powerball"</label>
-          <input id="secondSetNeededGlobal" type="checkbox" name="secondSetNeededGlobal" onchange="disableLast3Inputs(this.checked)" checked>
+          <label for="secondSetNeeded">Special number(s) required, e.g. a "powerball"</label>
+          <input id="secondSetNeeded" type="checkbox" name="secondSetNeeded" onchange="disableLast3Inputs(this.checked)" checked>
         </div>
 
         <div class="field">
-          <label for="minCountSet1Global">* What is the smallest number you can choose in your game?</label>
-          <input id="minCountSet1Global" type="number" name="minCountSet1Global" required>
+          <label for="minCountSet1">* What is the smallest number you can choose in your game?</label>
+          <input id="minCountSet1" type="number" name="minCountSet1" required>
         </div>
 
         <div class="field">
-          <label for="maxCountSet1Global">* What is the largest number you can choose in your game?</label>
-          <input id="maxCountSet1Global" type="number" name="maxCountSet1Global" required>
+          <label for="maxCountSet1">* What is the largest number you can choose in your game?</label>
+          <input id="maxCountSet1" type="number" name="maxCountSet1" required>
         </div>
 
         <div class="field">
-          <label for="numOfRandIntsNeededSet1Global">* How many "normal" numbers do you need to choose per game?</label>
-          <input id="numOfRandIntsNeededSet1Global" type="number" name="numOfRandIntsNeededSet1Global" required>
+          <label for="numOfRandIntsNeededSet1">* How many "normal" numbers do you need to choose per game?</label>
+          <input id="numOfRandIntsNeededSet1" type="number" name="numOfRandIntsNeededSet1" required>
         </div>
 
         <div class="field">
-          <label for="minCountSet2Global">** What is the smallest special number that you can choose?</label>
-          <input id="minCountSet2Global" type="number" name="minCountSet2Global">
+          <label for="minCountSet2">** What is the smallest special number that you can choose?</label>
+          <input id="minCountSet2" type="number" name="minCountSet2">
         </div>
 
         <div class="field">
-          <label for="maxCountSet2Global">** What is the largest special number you can choose?</label>
-          <input id="maxCountSet2Global" type="number" name="maxCountSet2Global">
+          <label for="maxCountSet2">** What is the largest special number you can choose?</label>
+          <input id="maxCountSet2" type="number" name="maxCountSet2">
         </div>
 
         <div class="field">
-          <label for="numOfRandIntsNeededSet2Global">** How many special numbers do you need?</label>
-          <input id="numOfRandIntsNeededSet2Global" type="number" name="numOfRandIntsNeededSet2Global">
+          <label for="numOfRandIntsNeededSet2">** How many special numbers do you need?</label>
+          <input id="numOfRandIntsNeededSet2" type="number" name="numOfRandIntsNeededSet2">
         </div>
 
         <div id="x">
@@ -79,6 +79,9 @@
           <button class="GenerateNumbers">Generate lotto numbers</button>
         </div>
       </form>
+    </div>
+
+    <div id="errors_div">
     </div>
 
     <script type="text/javascript" src="./disableLast3Inputs.js"></script>
