@@ -94,34 +94,28 @@ function generateLottoNumbers() {
 
   // If there are error messages to show
   if (errors.length > 0) {
-    /*
-    console.log("ERROR: 1 or more invalid input(s) given.");
+    var errorsDiv = document.getElementById('errors_div');
     
-    // List errors one by one
-    errors.forEach(error => {
-      console.log(error);
-    });
-    */
-    // For each item in todo list create a list item
-    todoList.todos.forEach(function(todo, position) {
-      var todoLi = document.createElement('li');
-      var todoTextWithCompletion = '';
+    errorsDiv.innerHTML = ''; // Clear div before going through it
 
-      if (todo.completed === true) {
-        todoTextWithCompletion = '(x) ' + todo.todoText;
-      }
-      else {
-        todoTextWithCompletion = '( ) ' + todo.todoText;
-      }
+    // Put header in error div
+    var errorHeader = document.createElement('h3');
+    errorHeader.textContent = 'Error! 1 or more invalid inputs given!';
+    errorsDiv.appendChild(errorHeader);
 
-      todoLi.id = position;
-      todoLi.textContent = todoTextWithCompletion;
-      todoLi.appendChild(this.createDeleteButton());
-      todosUl.appendChild(todoLi);
+    // For each error in errors, create a paragraph in error div
+    // under header
+    errors.forEach(function(error) {
+      var errorPara = document.createElement('p');
+      var errorTextWithCompletion = error;
+
+      errorPara.textContent = errorTextWithCompletion;
+      
+      errorsDiv.appendChild(errorPara);
     }, this)  // need to include 'this' here to refer to
               // object in todo method in view object
-      // this // refers to iew object
-      // forEach(callback, this)
+              // this refers to view object
+              // forEach(callback, this)
   }
   else {
     if (secondSetNeeded === true) {
@@ -143,3 +137,13 @@ function generateLottoNumbers() {
     }
   }
 }
+
+document.querySelector('button').addEventListener("click", (event) => {
+  // Get the element that was clicked on
+  var elementClicked = event.target
+    
+  // Check if elementClicked is a GenerateNumbers button
+  if (elementClicked.className === 'GenerateNumbers') {
+    generateLottoNumbers();
+  }
+})
