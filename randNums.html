@@ -37,7 +37,7 @@
 
         <div class="field">
           <label for="secondSetNeededGlobal">Special number(s) required, e.g. a "powerball"</label>
-          <input id="secondSetNeededGlobal" type="checkbox" name="secondSetNeededGlobal" onchange="disableLast3Inputs(this.checked)">
+          <input id="secondSetNeededGlobal" type="checkbox" name="secondSetNeededGlobal" onchange="disableLast3Inputs(this.checked)" checked>
         </div>
 
         <div class="field">
@@ -70,14 +70,18 @@
           <input id="numOfRandIntsNeededSet2Global" type="number" name="numOfRandIntsNeededSet2Global">
         </div>
 
+        <div id="x">
+
+        </div>
+
         <div class="button_bar">
-          <button class="reset_button" type="reset">clear settings</button>
+          <button class="reset_button" type="reset">Reset</button>
           <button class="GenerateNumbers">Generate lotto numbers</button>
         </div>
       </form>
     </div>
 
-    <script type="text/javascript" src="disableLast3Inputs.js"></script>
-    <script type="text/javascript" src="randNums.js"></script>
+    <script type="text/javascript" src="./disableLast3Inputs.js"></script>
+    <!--<script type="text/javascript" src="randNums.js"></script>-->
   </body>
 </html>
