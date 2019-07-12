@@ -48,7 +48,8 @@ function randomIntsFromIntsArray(minCount, maxCount, numOfRandIntsNeeded, sort) 
 }
 
 function generateLottoNumbers() {
-  let numOfGames = 4;
+  let numOfGames = document.getElementById("numOfGames").value;//4;
+  document.getElementById("y").innerText = numOfGames;
   let sort = true; // Boolean to see if user wants random ints to be sorted
   let secondSetNeeded = true; // Boolean to see if user wants 2 sets of random ints per game
   let errors = []; // Array to hold error messages
