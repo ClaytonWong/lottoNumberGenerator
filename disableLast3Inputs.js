@@ -1,21 +1,19 @@
 function disableLast3Inputs(_checked) {
-  var secondSetNeededChecked = document.getElementById("secondSetNeeded").checked;
+  var secondSetNeededChecked = document.getElementById("secondSetNeededGlobal").checked;
 
   if(secondSetNeededChecked) {
-    document.getElementById('minCountSet2').removeAttribute("disabled",!(_checked));
-    document.getElementById('maxCountSet2').removeAttribute("disabled",!(_checked));
-    document.getElementById('numOfRandIntsNeededSet2').removeAttribute("disabled", !(_checked));
+    document.getElementById('minCountSet2Global').removeAttribute("disabled",!(_checked));
+    document.getElementById('maxCountSet2Global').removeAttribute("disabled",!(_checked));
+    document.getElementById('numOfRandIntsNeededSet2Global').removeAttribute("disabled", !(_checked));
   }
   else {
-    document.getElementById('minCountSet2').setAttribute("disabled",!(_checked));
-    document.getElementById('maxCountSet2').setAttribute("disabled",!(_checked));
-    document.getElementById('numOfRandIntsNeededSet2').setAttribute("disabled", !(_checked));
+    document.getElementById('minCountSet2Global').setAttribute("disabled",!(_checked));
+    document.getElementById('maxCountSet2Global').setAttribute("disabled",!(_checked));
+    document.getElementById('numOfRandIntsNeededSet2Global').setAttribute("disabled", !(_checked));
   }
-
-  document.getElementById("x").innerText = secondSetNeededChecked;
 }
 
-document.getElementById("secondSetNeeded").addEventListener("change", (event) => {
+document.getElementById("secondSetNeededGlobal").addEventListener("change", (event) => {
   var _checked = event.target.value;
   disableLast3Inputs(_checked);
 })

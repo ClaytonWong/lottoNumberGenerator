@@ -26,56 +26,48 @@
 
       <form>
         <div class="field">
-          <label for="numOfGames">* How many games do you want to play?</label>
-          <input id="numOfGames" type="number" name="numOfGames" required>
+          <label for="numOfGamesGlobal">* How many games do you want to play?</label>
+          <input id="numOfGamesGlobal" type="text" name="numOfGamesGlobal" pattern="\d+" required>
         </div>
         
         <div class="field">
-          <label for="sort">Sort lotto numbers given</label>
-          <input id="sort" type="checkbox" name="sort">
+          <label for="sortGlobal">Sort lotto numbers given</label>
+          <input id="sortGlobal" type="checkbox" name="sortGlobal">
         </div>
 
         <div class="field">
-          <label for="secondSetNeeded">Special number(s) required, e.g. a "powerball"</label>
-          <input id="secondSetNeeded" type="checkbox" name="secondSetNeeded" onchange="disableLast3Inputs(this.checked)" checked>
+          <label for="secondSetNeededGlobal">Special number(s) required, e.g. a "powerball"</label>
+          <input id="secondSetNeededGlobal" type="checkbox" name="secondSetNeededGlobal" onchange="disableLast3Inputs(this.checked)" checked>
         </div>
 
         <div class="field">
-          <label for="minCountSet1">* What is the smallest number you can choose in your game?</label>
-          <input id="minCountSet1" type="number" name="minCountSet1" required>
+          <label for="minCountSet1Global">* What is the smallest number you can choose in your game?</label>
+          <input id="minCountSet1Global" type="text" name="minCountSet1Global" pattern="\d+" required>
         </div>
 
         <div class="field">
-          <label for="maxCountSet1">* What is the largest number you can choose in your game?</label>
-          <input id="maxCountSet1" type="number" name="maxCountSet1" required>
+          <label for="maxCountSet1Global">* What is the largest number you can choose in your game?</label>
+          <input id="maxCountSet1Global" type="text" name="maxCountSet1Global" pattern="\d+" required>
         </div>
 
         <div class="field">
-          <label for="numOfRandIntsNeededSet1">* How many "normal" numbers do you need to choose per game?</label>
-          <input id="numOfRandIntsNeededSet1" type="number" name="numOfRandIntsNeededSet1" required>
+          <label for="numOfRandIntsNeededSet1Global">* How many "normal" numbers do you need to choose per game?</label>
+          <input id="numOfRandIntsNeededSet1Global" type="text" name="numOfRandIntsNeededSet1Global" pattern="\d+" required>
         </div>
 
         <div class="field">
-          <label for="minCountSet2">** What is the smallest special number that you can choose?</label>
-          <input id="minCountSet2" type="number" name="minCountSet2">
+          <label for="minCountSet2Global">** What is the smallest special number that you can choose?</label>
+          <input id="minCountSet2Global" type="number" name="minCountSet2Global">
         </div>
 
         <div class="field">
-          <label for="maxCountSet2">** What is the largest special number you can choose?</label>
-          <input id="maxCountSet2" type="number" name="maxCountSet2">
+          <label for="maxCountSet2Global">** What is the largest special number you can choose?</label>
+          <input id="maxCountSet2Global" type="number" name="maxCountSet2Global">
         </div>
 
         <div class="field">
-          <label for="numOfRandIntsNeededSet2">** How many special numbers do you need?</label>
-          <input id="numOfRandIntsNeededSet2" type="number" name="numOfRandIntsNeededSet2">
-        </div>
-
-        <div id="x">
-
-        </div>
-
-        <div id="y">
-
+          <label for="numOfRandIntsNeededSet2Global">** How many special numbers do you need?</label>
+          <input id="numOfRandIntsNeededSet2Global" type="number" name="numOfRandIntsNeededSet2Global">
         </div>
 
         <div class="button_bar">
