@@ -1,0 +1,10 @@
+Fri 2019 Jul 5
+--------------
+Error messages disappear from screen or not shown if 
+forbidden combinations of integers are given at required input fields e.g.
+numOfGamesGlobal = 1
+sortGlobal = false
+secondSetNeededGlobal = false
+minCountSet1Global = 1
+maxCountSet1Global = 2
+numOfRandIntsNeededSet1Global = 3
