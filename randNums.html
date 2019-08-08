@@ -57,31 +57,31 @@
 
         <div class="field">
           <label for="minCountSet2Global">** What is the smallest special number that you can choose?</label>
-          <input id="minCountSet2Global" type="number" name="minCountSet2Global">
+          <input id="minCountSet2Global" type="text" name="minCountSet2Global" pattern="\d+">
         </div>
 
         <div class="field">
           <label for="maxCountSet2Global">** What is the largest special number you can choose?</label>
-          <input id="maxCountSet2Global" type="number" name="maxCountSet2Global">
+          <input id="maxCountSet2Global" type="text" name="maxCountSet2Global" pattern="\d+">
         </div>
 
         <div class="field">
           <label for="numOfRandIntsNeededSet2Global">** How many special numbers do you need?</label>
-          <input id="numOfRandIntsNeededSet2Global" type="number" name="numOfRandIntsNeededSet2Global">
+          <input id="numOfRandIntsNeededSet2Global" type="text" name="numOfRandIntsNeededSet2Global" pattern="\d+">
         </div>
 
         <div class="button_bar">
           <button class="reset_button" type="reset" onclick="clearErrors()">Reset</button>
-          <button class="GenerateNumbers" onclick="generateLottoNumbers()">Generate lotto numbers</button>
+          <button class="GenerateNumbers" onclick="handlers.generateLottoNumbers()">Generate lotto numbers</button>
         </div>
       </form>
     </div>
 
-    <div id="errors_div">
+    <div>
     </div>
 
     <script type="text/javascript" src="./disableLast3Inputs.js"></script>
     <script type="text/javascript" src="./clearErrors.js"></script>
-    <script type="text/javascript" src="randNums.js"></script>
+    <script type="text/javascript" src="./randNums.js"></script>
   </body>
 </html>

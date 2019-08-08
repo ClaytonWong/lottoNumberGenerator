@@ -11,5 +11,6 @@ document.querySelector('button').addEventListener("click", (event) => {
   // Check if elementClicked is a reset_button button
   if (elementClicked.className === 'reset_button') {
     clearErrors();
+    //handlers.clearErrors();
   }
 })
