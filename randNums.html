@@ -57,17 +57,17 @@
 
         <div class="field">
           <label for="minCountSet2Global">** What is the smallest special number that you can choose?</label>
-          <input id="minCountSet2Global" type="text" name="minCountSet2Global" pattern="\d+">
+          <input id="minCountSet2Global" type="text" name="minCountSet2Global" pattern="\d+" required>
         </div>
 
         <div class="field">
           <label for="maxCountSet2Global">** What is the largest special number you can choose?</label>
-          <input id="maxCountSet2Global" type="text" name="maxCountSet2Global" pattern="\d+">
+          <input id="maxCountSet2Global" type="text" name="maxCountSet2Global" pattern="\d+" required>
         </div>
 
         <div class="field">
           <label for="numOfRandIntsNeededSet2Global">** How many special numbers do you need?</label>
-          <input id="numOfRandIntsNeededSet2Global" type="text" name="numOfRandIntsNeededSet2Global" pattern="\d+">
+          <input id="numOfRandIntsNeededSet2Global" type="text" name="numOfRandIntsNeededSet2Global" pattern="\d+" required>
         </div>
 
         <div class="button_bar">
@@ -81,6 +81,7 @@
     </div>
 
     <script type="text/javascript" src="./disableLast3Inputs.js"></script>
+    <script type="text/javascript" src="./requireLast3Inputs.js"></script>
     <script type="text/javascript" src="./clearErrors.js"></script>
     <script type="text/javascript" src="./randNums.js"></script>
   </body>
