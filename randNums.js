@@ -53,15 +53,38 @@ let errorsListGlobal = {
 
 let handlers = {
   generateLottoNumbers: function () {
-    let numOfGamesGlobal = parseInt(document.getElementById("numOfGamesGlobal").value);//4
+    
+    let numOfGamesGlobal = parseInt(
+      document.getElementById("numOfGamesGlobal").value
+    );//4
+
     let sortGlobal = document.getElementById("sortGlobal").checked;//true; // Boolean to see if user wants random ints to be sorted
+    
     let secondSetNeededGlobal = document.getElementById("secondSetNeededGlobal").checked;//true; // Boolean to see if user wants 2 sets of random ints per game
-    let minCountSet1Global = parseInt(document.getElementById("minCountSet1Global").value);//1;
-    let maxCountSet1Global = parseInt(document.getElementById("maxCountSet1Global").value);//35;
-    let numOfRandIntsNeededSet1Global = parseInt(document.getElementById("numOfRandIntsNeededSet1Global").value);// 36;
-    let minCountSet2Global = parseInt(document.getElementById("minCountSet2Global").value);// 1;
-    let maxCountSet2Global = parseInt(document.getElementById("maxCountSet2Global").value);//20;
-    let numOfRandIntsNeededSet2Global = parseInt(document.getElementById("numOfRandIntsNeededSet2Global").value);//21;
+    
+    let minCountSet1Global = parseInt(
+      document.getElementById("minCountSet1Global").value
+    );//1;
+
+    let maxCountSet1Global = parseInt(
+      document.getElementById("maxCountSet1Global").value
+    );//35;
+
+    let numOfRandIntsNeededSet1Global = parseInt(
+      document.getElementById("numOfRandIntsNeededSet1Global").value
+    );// 36;
+
+    let minCountSet2Global = parseInt(
+      document.getElementById("minCountSet2Global").value
+    );// 1;
+
+    let maxCountSet2Global = parseInt(
+      document.getElementById("maxCountSet2Global").value
+    );//20;
+
+    let numOfRandIntsNeededSet2Global = parseInt(
+      document.getElementById("numOfRandIntsNeededSet2Global").value
+    );//21;
   
     errorsListGlobal.checkAndAddErrors(numOfGamesGlobal, minCountSet1Global, maxCountSet1Global, 
                                        numOfRandIntsNeededSet1Global, secondSetNeededGlobal, 
