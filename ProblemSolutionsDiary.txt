@@ -8,3 +8,8 @@ secondSetNeededGlobal = false
 minCountSet1Global = 1
 maxCountSet1Global = 2
 numOfRandIntsNeededSet1Global = 3
+
+Wed 2019 Aug 14
+---------------
+Fixed above problem by changing the form opening and closing tags to div
+tags. This is because the lotto number generator is not a form.
