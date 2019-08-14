@@ -24,7 +24,7 @@
         ** required if you need special numbers.
       </p>
 
-      <form>
+      <div>
         <div class="field">
           <label for="numOfGamesGlobal">* How many games do you want to play?</label>
           <input id="numOfGamesGlobal" type="text" name="numOfGamesGlobal" pattern="\d+" required>
@@ -74,10 +74,10 @@
           <button class="reset_button" type="reset" onclick="clearErrors()">Reset</button>
           <button class="GenerateNumbers" onclick="handlers.generateLottoNumbers()">Generate lotto numbers</button>
         </div>
-      </form>
+      </div>
     </div>
 
-    <div>
+    <div id="errors_div" autoupdate="false">
     </div>
 
     <script type="text/javascript" src="./disableLast3Inputs.js"></script>

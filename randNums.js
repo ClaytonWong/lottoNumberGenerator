@@ -53,7 +53,7 @@ let errorsListGlobal = {
 
 let handlers = {
   generateLottoNumbers: function () {
-    
+
     let numOfGamesGlobal = parseInt(
       document.getElementById("numOfGamesGlobal").value
     );//4
@@ -86,14 +86,45 @@ let handlers = {
       document.getElementById("numOfRandIntsNeededSet2Global").value
     );//21;
   
-    errorsListGlobal.checkAndAddErrors(numOfGamesGlobal, minCountSet1Global, maxCountSet1Global, 
-                                       numOfRandIntsNeededSet1Global, secondSetNeededGlobal, 
-                                       minCountSet2Global, maxCountSet2Global,
-                                       numOfRandIntsNeededSet2Global);
-
-    if (errorsListGlobal.errorsGlobal.length > 0) {
-      view.displayErrors();
+    try {
+      errorsListGlobal.checkAndAddErrors(numOfGamesGlobal, minCountSet1Global, maxCountSet1Global, 
+        numOfRandIntsNeededSet1Global, secondSetNeededGlobal, 
+        minCountSet2Global, maxCountSet2Global,
+        numOfRandIntsNeededSet2Global);
+      
+      if (errorsListGlobal.errorsGlobal.length > 0) {
+        //view.displayErrors();
+        throw errorsListGlobal.errorsGlobal;
+      }
+      
     }
+    catch(err) {
+      
+      var errorsDiv = document.getElementById('errors_div');
+      //var errorsDiv = document.querySelector('#errors_div');
+      
+      errorsDiv.innerHTML = ''; // Clear div before going through it
+      
+      // Put header in error div
+      var errorHeader = document.createElement('h3');
+      errorHeader.textContent = 'Error! 1 or more invalid inputs given!';
+      errorsDiv.appendChild(errorHeader);
+
+      // For each error in errorsGlobal, create a paragraph in error div
+      // under header
+      errorsListGlobal.errorsGlobal.forEach(function(error) {
+        var errorPara = document.createElement('p');
+        var errorTextWithCompletion = error;
+
+        errorPara.textContent = errorTextWithCompletion;
+        
+        errorsDiv.appendChild(errorPara);
+      }, this)  // need to include 'this' here to refer to
+                // object in errorsListGlobal method in view object
+                // this refers to view object
+                // forEach(callback, this)
+      }
+        
   },
   clearErrors: function () {
     errorsListGlobal.clearErrors();
@@ -151,7 +182,9 @@ function randomIntsFromIntsArray(minCount, maxCount, numOfRandIntsNeeded, sort) 
 
 let view = {
   displayErrors: function() {
-    var errorsDiv = document.querySelector('div');
+    //var errorsDiv = document.querySelector('div');
+    //var errorsDiv = document.getElementById('errors_div');
+    var errorsDiv = document.querySelector('#errors_div');
     
     errorsDiv.innerHTML = ''; // Clear div before going through it
 
@@ -211,7 +244,6 @@ document.querySelector('button').addEventListener("click", (event) => {
     
   // Check if elementClicked is a GenerateNumbers button
   if (elementClicked.className === 'GenerateNumbers') {
-    console.log("here");
     handlers.generateLottoNumbers();
   }
 })
