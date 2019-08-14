@@ -54,6 +54,9 @@ let errorsListGlobal = {
 let handlers = {
   generateLottoNumbers: function () {
 
+    view.clearErrorsDiv(); // Clear any error messages currently on screen
+    errorsListGlobal.clearErrors(); // Clear any error messages from errors list
+
     let numOfGamesGlobal = parseInt(
       document.getElementById("numOfGamesGlobal").value
     );//4
@@ -99,31 +102,31 @@ let handlers = {
       
     }
     catch(err) {
+      view.displayErrors();
+      // var errorsDiv = document.getElementById('errors_div');
+      // //var errorsDiv = document.querySelector('#errors_div');
       
-      var errorsDiv = document.getElementById('errors_div');
-      //var errorsDiv = document.querySelector('#errors_div');
+      // errorsDiv.innerHTML = ''; // Clear div before going through it
       
-      errorsDiv.innerHTML = ''; // Clear div before going through it
-      
-      // Put header in error div
-      var errorHeader = document.createElement('h3');
-      errorHeader.textContent = 'Error! 1 or more invalid inputs given!';
-      errorsDiv.appendChild(errorHeader);
+      // // Put header in error div
+      // var errorHeader = document.createElement('h3');
+      // errorHeader.textContent = 'Error! 1 or more invalid inputs given!';
+      // errorsDiv.appendChild(errorHeader);
 
-      // For each error in errorsGlobal, create a paragraph in error div
-      // under header
-      errorsListGlobal.errorsGlobal.forEach(function(error) {
-        var errorPara = document.createElement('p');
-        var errorTextWithCompletion = error;
+      // // For each error in errorsGlobal, create a paragraph in error div
+      // // under header
+      // errorsListGlobal.errorsGlobal.forEach(function(error) {
+      //   var errorPara = document.createElement('p');
+      //   var errorTextWithCompletion = error;
 
-        errorPara.textContent = errorTextWithCompletion;
+      //   errorPara.textContent = errorTextWithCompletion;
         
-        errorsDiv.appendChild(errorPara);
-      }, this)  // need to include 'this' here to refer to
+      //   errorsDiv.appendChild(errorPara);
+      // }, this)  // need to include 'this' here to refer to
                 // object in errorsListGlobal method in view object
                 // this refers to view object
                 // forEach(callback, this)
-      }
+    }
         
   },
   clearErrors: function () {
@@ -183,8 +186,8 @@ function randomIntsFromIntsArray(minCount, maxCount, numOfRandIntsNeeded, sort) 
 let view = {
   displayErrors: function() {
     //var errorsDiv = document.querySelector('div');
-    //var errorsDiv = document.getElementById('errors_div');
-    var errorsDiv = document.querySelector('#errors_div');
+    var errorsDiv = document.getElementById('errors_div');
+    //var errorsDiv = document.querySelector('#errors_div');
     
     errorsDiv.innerHTML = ''; // Clear div before going through it
 
@@ -206,6 +209,11 @@ let view = {
               // object in errorsListGlobal method in view object
               // this refers to view object
               // forEach(callback, this)
+  },
+  clearErrorsDiv: function() {
+    var errorsDiv = document.getElementById('errors_div');
+      
+    errorsDiv.innerHTML = ''; // Clear errors div
   }
 }
 
