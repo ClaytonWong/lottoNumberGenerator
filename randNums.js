@@ -15,10 +15,24 @@ let errorsListGlobal = {
                               numOfRandIntsNeededSet1Global, secondSetNeededGlobal, 
                               minCountSet2Global, maxCountSet2Global, numOfRandIntsNeededSet2Global) {
     // Put appropriate error string into errorsGlobal array depending on values of certain global variables
-    if (numOfGamesGlobal < 1 ) {
-      this.errorsGlobal.push("Number of games is less than 1.");
+    console.log(numOfGamesGlobal);
+    
+    // The regular expression /^-?\d+$/ will check if given string is an integer
+    if( /^-?\d+$/.test(numOfGamesGlobal) === false ) {
+      this.errorsGlobal.push("Number of games is not an integer.");
     }
-  
+    else {
+      if ( parseInt(numOfGamesGlobal) < 1 ) {
+        this.errorsGlobal.push("Number of games is less than 1.");
+      }
+    }
+
+    /*
+    if ( isNaN(numOfGamesGlobal) ) {
+      this.errorsGlobal.push("Number of games is not an integer.");
+    }
+    */
+    
     if(minCountSet1Global >= maxCountSet1Global) {
       this.errorsGlobal.push("Minimum number in range is equal to or greater than maximum number in range for set1.");
     }
@@ -57,9 +71,9 @@ let handlers = {
     view.clearErrorsDiv(); // Clear any error messages currently on screen
     errorsListGlobal.clearErrors(); // Clear any error messages from errors list
 
-    let numOfGamesGlobal = parseInt(
+    let numOfGamesGlobal = //parseInt(
       document.getElementById("numOfGamesGlobal").value
-    );//4
+    //);//4
 
     let sortGlobal = document.getElementById("sortGlobal").checked;//true; // Boolean to see if user wants random ints to be sorted
     
