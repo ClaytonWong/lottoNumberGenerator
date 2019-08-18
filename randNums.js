@@ -15,7 +15,6 @@ let errorsListGlobal = {
                               numOfRandIntsNeededSet1Global, secondSetNeededGlobal, 
                               minCountSet2Global, maxCountSet2Global, numOfRandIntsNeededSet2Global) {
     // Put appropriate error string into errorsGlobal array depending on values of certain global variables
-    console.log(numOfGamesGlobal);
     
     // The regular expression /^-?\d+$/ will check if given string is an integer
     if( /^-?\d+$/.test(numOfGamesGlobal) === false ) {
@@ -27,36 +26,76 @@ let errorsListGlobal = {
       }
     }
 
-    /*
-    if ( isNaN(numOfGamesGlobal) ) {
-      this.errorsGlobal.push("Number of games is not an integer.");
+    var minCountSet1GlobalIntTest = /^-?\d+$/.test(minCountSet1Global);
+    var maxCountSet1GlobalIntTest = /^-?\d+$/.test(maxCountSet1Global);
+    var numOfRandIntsNeededSet1GlobalIntTest = /^-?\d+$/.test(numOfRandIntsNeededSet1Global);
+
+    if(minCountSet1GlobalIntTest === false) {
+      this.errorsGlobal.push("minCountSet1Global is not an integer.")
     }
-    */
+
+    if(maxCountSet1GlobalIntTest === false) {
+      this.errorsGlobal.push("maxCountSet1Global is not an integer.")
+    }
+
+    if(numOfRandIntsNeededSet1GlobalIntTest === false) {
+      this.errorsGlobal.push("numOfRandIntsNeededSet1Global is not an integer.")
+    }
+
+    // If min. and max. from set1 are integers, then compare them 
+    if(minCountSet1GlobalIntTest && maxCountSet1GlobalIntTest) {
+      if( parseInt(minCountSet1Global) >= parseInt(maxCountSet1Global) ) {
+        this.errorsGlobal.push("Minimum number in range is equal to or greater than maximum number in range for set1.");
+      }
+    }
+
+    if(numOfRandIntsNeededSet1GlobalIntTest === true) {
+      if( parseInt(numOfRandIntsNeededSet1Global) < 1 ) {
+        this.errorsGlobal.push("Number of random integers wanted for set1 is less than 1.");
+      }
+    }
+  
+    if(numOfRandIntsNeededSet1GlobalIntTest && maxCountSet1GlobalIntTest) {
+      if( parseInt(numOfRandIntsNeededSet1Global) >= parseInt(maxCountSet1Global) ) {
+        this.errorsGlobal.push("Number of random integers wanted for set1 is greater than or equal to maximum number in range for set1.");
+      }
+    }
     
-    if(minCountSet1Global >= maxCountSet1Global) {
-      this.errorsGlobal.push("Minimum number in range is equal to or greater than maximum number in range for set1.");
-    }
-  
-    if(numOfRandIntsNeededSet1Global < 1) {
-      this.errorsGlobal.push("Number of random integers wanted for set1 is less than 1.");
-    }
-  
-    if(numOfRandIntsNeededSet1Global >= maxCountSet1Global) {
-      this.errorsGlobal.push("Number of random integers wanted for set1 is greater than or equal to maximum number in range for set1.");
-    }
-  
     // If you need second set of random integers, check values of more global variables 
     if (secondSetNeededGlobal === true) {
-      if(minCountSet2Global >= maxCountSet2Global) {
-        this.errorsGlobal.push("Minimum number in range is equal to or greater than maximum number in range for set2.");
+
+      var minCountSet2GlobalIntTest = /^-?\d+$/.test(minCountSet2Global);
+      var maxCountSet2GlobalIntTest = /^-?\d+$/.test(maxCountSet2Global);
+      var numOfRandIntsNeededSet2GlobalIntTest = /^-?\d+$/.test(numOfRandIntsNeededSet2Global);
+
+      if(minCountSet2GlobalIntTest === false) {
+        this.errorsGlobal.push("minCountSet2Global is not an integer.")
+      }
+
+      if(maxCountSet2GlobalIntTest === false) {
+        this.errorsGlobal.push("maxCountSet2Global is not an integer.")
+      }
+
+      if(numOfRandIntsNeededSet2GlobalIntTest === false) {
+        this.errorsGlobal.push("numOfRandIntsNeededSet2Global is not an integer.")
+      }
+
+      if(minCountSet2GlobalIntTest && maxCountSet2GlobalIntTest) {
+        if( parseInt(minCountSet2Global) >= parseInt(maxCountSet2Global) ) {
+          this.errorsGlobal.push("Minimum number in range is equal to or greater than maximum number in range for set2.");
+        }
+      }
+
+      if(numOfRandIntsNeededSet2GlobalIntTest) {
+        if(parseInt(numOfRandIntsNeededSet2Global) < 1) {
+          this.errorsGlobal.push("Number of random integers wanted for set2 is less than 1.");
+        }
       }
       
-      if(numOfRandIntsNeededSet2Global < 1) {
-        this.errorsGlobal.push("Number of random integers wanted for set2 is less than 1.");
-      }
-  
-      if(numOfRandIntsNeededSet2Global >= maxCountSet2Global) {
-        this.errorsGlobal.push("Number of random integers wanted for set2 is greater than or equal to maximum number in range for set2.");
+      if(numOfRandIntsNeededSet2GlobalIntTest && maxCountSet2GlobalIntTest) {
+        if( parseInt(numOfRandIntsNeededSet2Global) >= parseInt(maxCountSet2Global) ) {
+          this.errorsGlobal.push("Number of random integers wanted for set2 is greater than or equal to maximum number in range for set2.");
+        }
       }
     }
   },
@@ -71,37 +110,23 @@ let handlers = {
     view.clearErrorsDiv(); // Clear any error messages currently on screen
     errorsListGlobal.clearErrors(); // Clear any error messages from errors list
 
-    let numOfGamesGlobal = //parseInt(
-      document.getElementById("numOfGamesGlobal").value
-    //);//4
+    let numOfGamesGlobal = document.getElementById("numOfGamesGlobal").value;//4
 
     let sortGlobal = document.getElementById("sortGlobal").checked;//true; // Boolean to see if user wants random ints to be sorted
     
     let secondSetNeededGlobal = document.getElementById("secondSetNeededGlobal").checked;//true; // Boolean to see if user wants 2 sets of random ints per game
     
-    let minCountSet1Global = parseInt(
-      document.getElementById("minCountSet1Global").value
-    );//1;
+    let minCountSet1Global = document.getElementById("minCountSet1Global").value;//1;
 
-    let maxCountSet1Global = parseInt(
-      document.getElementById("maxCountSet1Global").value
-    );//35;
+    let maxCountSet1Global = document.getElementById("maxCountSet1Global").value;//35;
 
-    let numOfRandIntsNeededSet1Global = parseInt(
-      document.getElementById("numOfRandIntsNeededSet1Global").value
-    );// 36;
+    let numOfRandIntsNeededSet1Global = document.getElementById("numOfRandIntsNeededSet1Global").value;// 36;
 
-    let minCountSet2Global = parseInt(
-      document.getElementById("minCountSet2Global").value
-    );// 1;
+    let minCountSet2Global = document.getElementById("minCountSet2Global").value;// 1;
 
-    let maxCountSet2Global = parseInt(
-      document.getElementById("maxCountSet2Global").value
-    );//20;
+    let maxCountSet2Global = document.getElementById("maxCountSet2Global").value;//20;
 
-    let numOfRandIntsNeededSet2Global = parseInt(
-      document.getElementById("numOfRandIntsNeededSet2Global").value
-    );//21;
+    let numOfRandIntsNeededSet2Global = document.getElementById("numOfRandIntsNeededSet2Global").value;//21;
   
     try {
       errorsListGlobal.checkAndAddErrors(numOfGamesGlobal, minCountSet1Global, maxCountSet1Global, 
@@ -110,38 +135,12 @@ let handlers = {
         numOfRandIntsNeededSet2Global);
       
       if (errorsListGlobal.errorsGlobal.length > 0) {
-        //view.displayErrors();
         throw errorsListGlobal.errorsGlobal;
       }
-      
     }
     catch(err) {
       view.displayErrors();
-      // var errorsDiv = document.getElementById('errors_div');
-      // //var errorsDiv = document.querySelector('#errors_div');
-      
-      // errorsDiv.innerHTML = ''; // Clear div before going through it
-      
-      // // Put header in error div
-      // var errorHeader = document.createElement('h3');
-      // errorHeader.textContent = 'Error! 1 or more invalid inputs given!';
-      // errorsDiv.appendChild(errorHeader);
-
-      // // For each error in errorsGlobal, create a paragraph in error div
-      // // under header
-      // errorsListGlobal.errorsGlobal.forEach(function(error) {
-      //   var errorPara = document.createElement('p');
-      //   var errorTextWithCompletion = error;
-
-      //   errorPara.textContent = errorTextWithCompletion;
-        
-      //   errorsDiv.appendChild(errorPara);
-      // }, this)  // need to include 'this' here to refer to
-                // object in errorsListGlobal method in view object
-                // this refers to view object
-                // forEach(callback, this)
     }
-        
   },
   clearErrors: function () {
     errorsListGlobal.clearErrors();
