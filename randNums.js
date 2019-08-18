@@ -122,6 +122,21 @@ let view = {
     var errorsDiv = document.getElementById('errors_div');
       
     errorsDiv.innerHTML = ''; // Clear errors div
+  },
+  clearTextInputs: function() {
+    document.getElementById("numOfGames").value = "";
+
+    document.getElementById("minCountSet1").value = "";
+
+    document.getElementById("maxCountSet1").value = "";
+
+    document.getElementById("numOfRandIntsNeededSet1").value = "";
+
+    document.getElementById("minCountSet2").value = "";
+
+    document.getElementById("maxCountSet2").value = "";
+
+    document.getElementById("numOfRandIntsNeededSet2").value = "";
   }
 }
 
@@ -165,25 +180,15 @@ let handlers = {
       // If there are errors, then display them
       view.displayErrors();
     }
+    
   },
   clearErrors: function () {
     view.clearErrorsDiv();
     errorsList.clearErrorsList();
   },
-  clearTextInputs: function() {
-    document.getElementById("numOfGames").value = "";
-
-    document.getElementById("minCountSet1").value = "";
-
-    document.getElementById("maxCountSet1").value = "";
-
-    document.getElementById("numOfRandIntsNeededSet1").value = "";
-
-    document.getElementById("minCountSet2").value = "";
-
-    document.getElementById("maxCountSet2").value = "";
-
-    document.getElementById("numOfRandIntsNeededSet2").value = "";
+  clearErrorsAndInputs: function () {
+    this.clearErrors();
+    view.clearTextInputs();
   }
 }
 
@@ -280,7 +285,6 @@ document.querySelector('button').addEventListener("click", (event) => {
     
   // Check if elementClicked is a reset_button button
   if (elementClicked.className === 'reset_button') {
-    handlers.clearErrors();
-    handlers.clearTextInputs();
+    handlers.clearErrorsAndInputs();
   }
 })
