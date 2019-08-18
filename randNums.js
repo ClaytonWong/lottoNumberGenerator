@@ -88,7 +88,7 @@ let errorsList = {
       }
     }
   },
-  clearErrors: function() {
+  clearErrorsList: function() {
     this.errors = [];
   }
 };
@@ -97,7 +97,7 @@ let handlers = {
   generateLottoNumbers: function () {
 
     view.clearErrorsDiv(); // Clear any error messages currently on screen
-    errorsList.clearErrors(); // Clear any error messages from errors list
+    errorsList.clearErrorsList(); // Clear any error messages from errors list
 
     let numOfGames = document.getElementById("numOfGames").value;//4
 
