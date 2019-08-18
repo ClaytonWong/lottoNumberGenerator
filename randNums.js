@@ -93,11 +93,44 @@ let errorsList = {
   }
 };
 
+let view = {
+  displayErrors: function() {
+    var errorsDiv = document.getElementById('errors_div');
+        
+    errorsDiv.innerHTML = ''; // Clear div before going through it
+
+    // Put header in error div
+    var errorHeader = document.createElement('h3');
+    errorHeader.textContent = 'Error! 1 or more invalid inputs given!';
+    errorsDiv.appendChild(errorHeader);
+
+    // For each error in errors, create a paragraph in error div
+    // under header
+    errorsList.errors.forEach(function(error) {
+      var errorPara = document.createElement('p');
+      var errorTextWithCompletion = error;
+
+      errorPara.textContent = errorTextWithCompletion;
+      
+      errorsDiv.appendChild(errorPara);
+    }, this)  // need to include 'this' here to refer to
+              // object in errorsList method in view object
+              // this refers to view object
+              // forEach(callback, this)
+  },
+  clearErrorsDiv: function() {
+    var errorsDiv = document.getElementById('errors_div');
+      
+    errorsDiv.innerHTML = ''; // Clear errors div
+  }
+}
+
 let handlers = {
   generateLottoNumbers: function () {
 
-    view.clearErrorsDiv(); // Clear any error messages currently on screen
-    errorsList.clearErrorsList(); // Clear any error messages from errors list
+    // Clear any error messages currently on screen, then
+    // clear any error messages from errors list
+    this.clearErrors();
 
     let numOfGames = document.getElementById("numOfGames").value;//4
 
@@ -132,8 +165,23 @@ let handlers = {
     }
   },
   clearErrors: function () {
-    errorsList.clearErrorsList();
     view.clearErrorsDiv();
+    errorsList.clearErrorsList();
+  },
+  clearTextInputs: function() {
+    document.getElementById("numOfGames").value = "";
+
+    document.getElementById("minCountSet1").value = "";
+
+    document.getElementById("maxCountSet1").value = "";
+
+    document.getElementById("numOfRandIntsNeededSet1").value = "";
+
+    document.getElementById("minCountSet2").value = "";
+
+    document.getElementById("maxCountSet2").value = "";
+
+    document.getElementById("numOfRandIntsNeededSet2").value = "";
   }
 }
 
@@ -186,38 +234,6 @@ function randomIntsFromIntsArray(minCount, maxCount, numOfRandIntsNeeded, sort) 
   return randIntsChosen;
 }
 
-let view = {
-  displayErrors: function() {
-    var errorsDiv = document.getElementById('errors_div');
-        
-    errorsDiv.innerHTML = ''; // Clear div before going through it
-
-    // Put header in error div
-    var errorHeader = document.createElement('h3');
-    errorHeader.textContent = 'Error! 1 or more invalid inputs given!';
-    errorsDiv.appendChild(errorHeader);
-
-    // For each error in errors, create a paragraph in error div
-    // under header
-    errorsList.errors.forEach(function(error) {
-      var errorPara = document.createElement('p');
-      var errorTextWithCompletion = error;
-
-      errorPara.textContent = errorTextWithCompletion;
-      
-      errorsDiv.appendChild(errorPara);
-    }, this)  // need to include 'this' here to refer to
-              // object in errorsList method in view object
-              // this refers to view object
-              // forEach(callback, this)
-  },
-  clearErrorsDiv: function() {
-    var errorsDiv = document.getElementById('errors_div');
-      
-    errorsDiv.innerHTML = ''; // Clear errors div
-  }
-}
-
 //function generateLottoNumbers() {
   // If there are error messages to show
   //if (errors.length > 0) {
@@ -248,7 +264,7 @@ let view = {
 
 document.querySelector('button').addEventListener("click", (event) => {
   // Get the element that was clicked on
-  var elementClicked = event.target
+  var elementClicked = event.target;
     
   // Check if elementClicked is a GenerateNumbers button
   if (elementClicked.className === 'GenerateNumbers') {
@@ -258,10 +274,11 @@ document.querySelector('button').addEventListener("click", (event) => {
 
 document.querySelector('button').addEventListener("click", (event) => {
   // Get the element that was clicked on
-  var elementClicked = event.target
+  var elementClicked = event.target;
     
   // Check if elementClicked is a reset_button button
   if (elementClicked.className === 'reset_button') {
-    
+    handlers.clearErrors();
+    handlers.clearTextInputs();
   }
 })
