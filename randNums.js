@@ -180,7 +180,27 @@ let handlers = {
       // If there are errors, then display them
       view.displayErrors();
     }
-    
+    finally {
+      if (errorsList.errors.length === 0) {
+        if (secondSetNeeded === true) {
+          for(let count = 1; count <= numOfGames; count++) {
+            console.log(`
+            Game ${count} 
+            Random ints chosen set 1: ${randomIntsFromIntsArray(minCountSet1, maxCountSet1, numOfRandIntsNeededSet1, sort)}
+            Random ints chosen set 2: ${randomIntsFromIntsArray(minCountSet2, maxCountSet2, numOfRandIntsNeededSet2, sort)}
+            `);
+          }
+        }
+        else {
+          for(let count = 1; count <= numOfGames; count++) {
+            console.log(`
+            Game ${count} 
+            Random ints chosen set 1: ${randomIntsFromIntsArray(minCountSet1, maxCountSet1, numOfRandIntsNeededSet1, sort)}
+            `);
+          }
+        }
+      }
+    }
   },
   clearErrors: function () {
     view.clearErrorsDiv();
