@@ -132,7 +132,8 @@ let handlers = {
     }
   },
   clearErrors: function () {
-    errorsList.clearErrors();
+    errorsList.clearErrorsList();
+    view.clearErrorsDiv();
   }
 }
 
@@ -252,5 +253,15 @@ document.querySelector('button').addEventListener("click", (event) => {
   // Check if elementClicked is a GenerateNumbers button
   if (elementClicked.className === 'GenerateNumbers') {
     handlers.generateLottoNumbers();
+  }
+})
+
+document.querySelector('button').addEventListener("click", (event) => {
+  // Get the element that was clicked on
+  var elementClicked = event.target
+    
+  // Check if elementClicked is a reset_button button
+  if (elementClicked.className === 'reset_button') {
+    
   }
 })
