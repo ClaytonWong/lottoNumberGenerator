@@ -108,9 +108,9 @@ let view = {
     // under header
     errorsList.errors.forEach(function(error) {
       var errorPara = document.createElement('p');
-      var errorTextWithCompletion = error;
+      var errorText = error;
 
-      errorPara.textContent = errorTextWithCompletion;
+      errorPara.textContent = errorText;
       
       errorsDiv.appendChild(errorPara);
     }, this)  // need to include 'this' here to refer to
