@@ -187,10 +187,8 @@ function randomIntsFromIntsArray(minCount, maxCount, numOfRandIntsNeeded, sort) 
 
 let view = {
   displayErrors: function() {
-    //var errorsDiv = document.querySelector('div');
     var errorsDiv = document.getElementById('errors_div');
-    //var errorsDiv = document.querySelector('#errors_div');
-    
+        
     errorsDiv.innerHTML = ''; // Clear div before going through it
 
     // Put header in error div
