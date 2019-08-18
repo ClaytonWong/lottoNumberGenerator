@@ -151,6 +151,7 @@ let handlers = {
     let numOfRandIntsNeededSet2 = document.getElementById("numOfRandIntsNeededSet2").value;//21;
   
     try {
+      // Validate input from test boxes
       errorsList.checkAndAddErrors(numOfGames, minCountSet1, maxCountSet1, 
         numOfRandIntsNeededSet1, secondSetNeeded, 
         minCountSet2, maxCountSet2,
@@ -161,6 +162,7 @@ let handlers = {
       }
     }
     catch(err) {
+      // If there are errors, then display them
       view.displayErrors();
     }
   },
