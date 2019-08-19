@@ -95,16 +95,16 @@ let errorsList = {
 
 let view = {
   displayErrors: function() {
-    var errorsDiv = document.getElementById('output_div');
+    var outputDiv = document.getElementById('output_div');
         
-    errorsDiv.innerHTML = ''; // Clear div before going through it
+    outputDiv.innerHTML = ''; // Clear div before going through it
 
     // Put header in error div
     var errorHeader = document.createElement('h3');
     errorHeader.textContent = 'Error! 1 or more invalid inputs given!';
-    errorsDiv.appendChild(errorHeader);
+    outputDiv.appendChild(errorHeader);
 
-    // For each error in errors, create a paragraph in error div
+    // For each error, create a paragraph in outputDiv
     // under header
     errorsList.errors.forEach(function(error) {
       var errorPara = document.createElement('p');
@@ -112,7 +112,7 @@ let view = {
 
       errorPara.textContent = errorText;
       
-      errorsDiv.appendChild(errorPara);
+      outputDiv.appendChild(errorPara);
     }, this)  // need to include 'this' here to refer to
               // object in errorsList method in view object
               // this refers to view object
@@ -121,10 +121,10 @@ let view = {
   displayTable: function() {
     
   },
-  clearErrorsDiv: function() {
-    var errorsDiv = document.getElementById('output_div');
+  clearOutputDiv: function() {
+    var outputDiv = document.getElementById('output_div');
       
-    errorsDiv.innerHTML = ''; // Clear errors div
+    outputDiv.innerHTML = ''; // Clear output div
   },
   clearTextInputs: function() {
     document.getElementById("numOfGames").value = "";
@@ -206,7 +206,7 @@ let handlers = {
     }
   },
   clearErrors: function () {
-    view.clearErrorsDiv();
+    view.clearOutputDiv();
     errorsList.clearErrorsList();
   },
   clearErrorsAndInputs: function () {
