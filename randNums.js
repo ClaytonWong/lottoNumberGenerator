@@ -130,12 +130,21 @@ let view = {
   addRow: function() {
     // need to add '[0]' to end of
     // 'var table = document.getElementsByTagName('table')'
-    // to make 'table.appendChild(row)' work
+    // to make 'table.appendChild(row)' work.
+    // This works by getting the first table.
     var table = document.getElementsByTagName('table')[0];
 
     var row = document.createElement('tr');
     
     table.appendChild(row);
+  },
+  addTableHeader: function (headerName) {
+    var topOfTable = document.getElementsByTagName('tr')[0];
+
+    var header = document.createElement('th');
+    header.innerText = headerName;
+
+    topOfTable.appendChild(header);
   },
   clearOutputDiv: function() {
     var outputDiv = document.getElementById('output_div');
@@ -203,8 +212,12 @@ let handlers = {
       if (errorsList.errors.length === 0) {
         view.displayTable();
         view.addRow();
+        view.addTableHeader('Game');
+        view.addTableHeader('Standard numbers');
 
         if (secondSetNeeded === true) {
+          view.addTableHeader('Special numbers');
+
           for(let count = 1; count <= numOfGames; count++) {
             console.log(`
             Game ${count} 
