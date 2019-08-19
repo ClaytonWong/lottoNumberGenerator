@@ -15,19 +15,7 @@ It has the following features:
   for multiple games.
 * Give the user the option to sort the random integers generated.
 
-## How to use this code
-To get this code to work, you will need Node.js.
-You can download it from the official site 
-
-https://nodejs.org/en/
-
-After Node.js is downloaded and installed, and after the project is cloned,
-navigate to the directory where the project is cloned using the commandline,
-you can run the code by typing 
-
-node randNums.js
-
 ## Background 
-At the moment this project is still a work in progress and is "backend/commandline
-only". My intention is to eventually create a frontend with styling for it using
-HTML and CSS.  
+At the moment this project is still a work in progress and only has basic
+styling to separate random numbers generated. The intention is to add
+usage instructions, clearer error messages, and improved styling.  
