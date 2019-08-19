@@ -156,6 +156,14 @@ let view = {
     
     lastTableRow.appendChild(tableData);
   },
+  addGameNum: function (count) {
+    var tableDataLength = document.getElementsByTagName('td').length;
+
+    // Get to last tableData
+    var lastTableData = document.getElementsByTagName('td')[tableDataLength - 1];
+
+    lastTableData.innerText = count;
+  },
   clearOutputDiv: function() {
     var outputDiv = document.getElementById('output_div');
       
@@ -231,6 +239,7 @@ let handlers = {
           for(let count = 1; count <= numOfGames; count++) {
             view.addRow();
             view.addTableData();
+            view.addGameNum(count);
 
             console.log(`
             Game ${count} 
@@ -243,6 +252,7 @@ let handlers = {
           for(let count = 1; count <= numOfGames; count++) {
             view.addRow();
             view.addTableData();
+            view.addGameNum(count);
 
             console.log(`
             Game ${count} 
