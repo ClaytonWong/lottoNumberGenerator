@@ -127,6 +127,16 @@ let view = {
     var table = document.createElement('table');
     outputDiv.appendChild(table);
   },
+  addRow: function() {
+    // need to add '[0]' to end of
+    // 'var table = document.getElementsByTagName('table')'
+    // to make 'table.appendChild(row)' work
+    var table = document.getElementsByTagName('table')[0];
+
+    var row = document.createElement('tr');
+    
+    table.appendChild(row);
+  },
   clearOutputDiv: function() {
     var outputDiv = document.getElementById('output_div');
       
@@ -192,7 +202,8 @@ let handlers = {
     finally {
       if (errorsList.errors.length === 0) {
         view.displayTable();
-        
+        view.addRow();
+
         if (secondSetNeeded === true) {
           for(let count = 1; count <= numOfGames; count++) {
             console.log(`
