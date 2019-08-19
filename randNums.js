@@ -119,7 +119,12 @@ let view = {
               // forEach(callback, this)
   },
   displayTable: function() {
-    
+    var outputDiv = document.getElementById('output_div');
+        
+    outputDiv.innerHTML = ''; // Clear div before going through it
+
+    // Put header in error div
+    var errorHeader = document.createElement('h3');
   },
   clearOutputDiv: function() {
     var outputDiv = document.getElementById('output_div');
@@ -148,7 +153,7 @@ let handlers = {
 
     // Clear any error messages currently on screen, then
     // clear any error messages from errors list
-    this.clearErrors();
+    this.clearErrorsOutputDiv();
 
     let numOfGames = document.getElementById("numOfGames").value;//4
 
@@ -209,7 +214,7 @@ let handlers = {
     view.clearOutputDiv();
     errorsList.clearErrorsList();
   },
-  clearErrorsAndInputs: function () {
+  clearErrorsAndOutputDivAndInputs: function () {
     this.clearErrors();
     view.clearTextInputs();
   }
@@ -308,6 +313,6 @@ document.querySelector('button').addEventListener("click", (event) => {
     
   // Check if elementClicked is a reset_button button
   if (elementClicked.className === 'reset_button') {
-    handlers.clearErrorsAndInputs();
+    handlers.clearErrorsAndOutputDivAndInputs();
   }
 })
