@@ -95,7 +95,7 @@ let errorsList = {
 
 let view = {
   displayErrors: function() {
-    var errorsDiv = document.getElementById('errors_div');
+    var errorsDiv = document.getElementById('output_div');
         
     errorsDiv.innerHTML = ''; // Clear div before going through it
 
@@ -118,8 +118,11 @@ let view = {
               // this refers to view object
               // forEach(callback, this)
   },
+  displayTable: function() {
+    
+  },
   clearErrorsDiv: function() {
-    var errorsDiv = document.getElementById('errors_div');
+    var errorsDiv = document.getElementById('output_div');
       
     errorsDiv.innerHTML = ''; // Clear errors div
   },
