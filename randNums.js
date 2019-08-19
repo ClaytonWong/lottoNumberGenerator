@@ -153,7 +153,7 @@ let handlers = {
 
     // Clear any error messages currently on screen, then
     // clear any error messages from errors list
-    this.clearErrorsOutputDiv();
+    this.clearErrorsAndOutputDiv();
 
     let numOfGames = document.getElementById("numOfGames").value;//4
 
@@ -210,12 +210,12 @@ let handlers = {
       }
     }
   },
-  clearErrors: function () {
+  clearErrorsAndOutputDiv: function () {
     view.clearOutputDiv();
     errorsList.clearErrorsList();
   },
   clearErrorsAndOutputDivAndInputs: function () {
-    this.clearErrors();
+    this.clearErrorsAndOutputDiv();
     view.clearTextInputs();
   }
 }
