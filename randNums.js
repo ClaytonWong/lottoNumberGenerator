@@ -146,6 +146,16 @@ let view = {
 
     topOfTable.appendChild(header);
   },
+  addTableData: function () {
+    var tableLength = document.getElementsByTagName('tr').length;
+
+    // Get to last row in table
+    var lastTableRow = document.getElementsByTagName('tr')[tableLength - 1];
+
+    var tableData = document.createElement('td');
+    
+    lastTableRow.appendChild(tableData);
+  },
   clearOutputDiv: function() {
     var outputDiv = document.getElementById('output_div');
       
@@ -219,6 +229,9 @@ let handlers = {
           view.addTableHeader('Special numbers');
 
           for(let count = 1; count <= numOfGames; count++) {
+            view.addRow();
+            view.addTableData();
+
             console.log(`
             Game ${count} 
             Random ints chosen set 1: ${randomIntsFromIntsArray(minCountSet1, maxCountSet1, numOfRandIntsNeededSet1, sort)}
@@ -228,6 +241,9 @@ let handlers = {
         }
         else {
           for(let count = 1; count <= numOfGames; count++) {
+            view.addRow();
+            view.addTableData();
+
             console.log(`
             Game ${count} 
             Random ints chosen set 1: ${randomIntsFromIntsArray(minCountSet1, maxCountSet1, numOfRandIntsNeededSet1, sort)}
