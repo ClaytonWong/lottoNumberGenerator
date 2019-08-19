@@ -164,6 +164,17 @@ let view = {
 
     lastTableData.innerText = count;
   },
+  addRandNum: function(randNum) {
+    var tableDataLength = document.getElementsByTagName('td').length;
+
+    // Get to last tableData
+    var lastTableData = document.getElementsByTagName('td')[tableDataLength - 1];
+
+    var span = document.createElement('span');
+    span.innerText = randNum;
+
+    lastTableData.appendChild(span);
+  },
   clearOutputDiv: function() {
     var outputDiv = document.getElementById('output_div');
       
@@ -235,29 +246,32 @@ let handlers = {
 
         if (secondSetNeeded === true) {
           view.addTableHeader('Special numbers');
-
-          for(let count = 1; count <= numOfGames; count++) {
-            view.addRow();
-            view.addTableData();
-            view.addGameNum(count);
-
-            console.log(`
-            Game ${count} 
-            Random ints chosen set 1: ${randomIntsFromIntsArray(minCountSet1, maxCountSet1, numOfRandIntsNeededSet1, sort)}
-            Random ints chosen set 2: ${randomIntsFromIntsArray(minCountSet2, maxCountSet2, numOfRandIntsNeededSet2, sort)}
-            `);
-          }
         }
-        else {
-          for(let count = 1; count <= numOfGames; count++) {
-            view.addRow();
-            view.addTableData();
-            view.addGameNum(count);
+        
+        for(let count = 1; count <= numOfGames; count++) {
+          view.addRow();
+          view.addTableData();
+          view.addGameNum(count);
+          view.addTableData();
 
-            console.log(`
-            Game ${count} 
-            Random ints chosen set 1: ${randomIntsFromIntsArray(minCountSet1, maxCountSet1, numOfRandIntsNeededSet1, sort)}
-            `);
+          var randomNumsSet1 = randomIntsFromIntsArray(minCountSet1, maxCountSet1, numOfRandIntsNeededSet1, sort);
+
+          randomNumsSet1.forEach(function(randNum) {
+            view.addRandNum(randNum);
+          });
+
+          console.log(`Game ${count}`);
+          console.log(`Random ints chosen set 1: ${randomNumsSet1}`);
+
+          if (secondSetNeeded === true) {
+            view.addTableData();
+
+            var randomNumsSet2 = randomIntsFromIntsArray(minCountSet2, maxCountSet2, numOfRandIntsNeededSet2, sort);
+            
+            randomNumsSet2.forEach(function(randNum) {
+              view.addRandNum(randNum);
+            });
+            console.log(`Random ints chosen set 2: ${randomNumsSet2}`);
           }
         }
       }
