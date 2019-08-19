@@ -95,13 +95,13 @@ let errorsList = {
 
 let view = {
   displayErrors: function() {
-    var outputDiv = document.getElementById('output_div');
-        
-    outputDiv.innerHTML = ''; // Clear div before going through it
+    this.clearOutputDiv(); // Clear outputDiv first
 
     // Put header in error div
     var errorHeader = document.createElement('h3');
     errorHeader.textContent = 'Error! 1 or more invalid inputs given!';
+
+    var outputDiv = document.getElementById('output_div');
     outputDiv.appendChild(errorHeader);
 
     // For each error, create a paragraph in outputDiv
@@ -119,12 +119,13 @@ let view = {
               // forEach(callback, this)
   },
   displayTable: function() {
-    var outputDiv = document.getElementById('output_div');
-        
-    outputDiv.innerHTML = ''; // Clear div before going through it
+    this.clearOutputDiv(); // Clear outputDiv first
 
-    // Put header in error div
-    var errorHeader = document.createElement('h3');
+    var outputDiv = document.getElementById('output_div');
+    
+    // Put table in output div
+    var table = document.createElement('table');
+    outputDiv.appendChild(table);
   },
   clearOutputDiv: function() {
     var outputDiv = document.getElementById('output_div');
@@ -190,6 +191,8 @@ let handlers = {
     }
     finally {
       if (errorsList.errors.length === 0) {
+        view.displayTable();
+        
         if (secondSetNeeded === true) {
           for(let count = 1; count <= numOfGames; count++) {
             console.log(`
