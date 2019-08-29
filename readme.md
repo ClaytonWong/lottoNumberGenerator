@@ -15,6 +15,15 @@ It has the following features:
   for multiple games.
 * Give the user the option to sort the random integers generated.
 
+## How to install and run Lotto Number Generator
+1. In github, click on the green "clone or download" button
+2. Choose "download zip" in the dropdown menu under the button
+3. Choose destination for download
+4. Extract the zip file in the directory of your choice
+5. Open randNums.html with your web browser
+6. In your web browser, enable JavaScript in the window or tab with
+   randNums.html
+
 ## Usage instructions
 At the text-box like inputs, such as “How many games do you want to play?”,
 only integers are valid.
