@@ -20,33 +20,33 @@ let errorsList = {
     var numOfRandIntsNeededSet1IntTest = /^-?\d+$/.test(numOfRandIntsNeededSet1);
 
     if(minCountSet1IntTest === false) {
-      this.errors.push("minCountSet1 is not an integer.")
+      this.errors.push("Smallest normal number in game is not an integer.")
     }
 
     if(maxCountSet1IntTest === false) {
-      this.errors.push("maxCountSet1 is not an integer.")
+      this.errors.push("Largest normal number in game is not an integer.")
     }
 
     if(numOfRandIntsNeededSet1IntTest === false) {
-      this.errors.push("numOfRandIntsNeededSet1 is not an integer.")
+      this.errors.push("Amount of normal numbers to draw per game is not an integer.")
     }
 
     // If min. and max. from set1 are integers, then compare them 
     if(minCountSet1IntTest && maxCountSet1IntTest) {
       if( parseInt(minCountSet1) >= parseInt(maxCountSet1) ) {
-        this.errors.push("Minimum number in range is equal to or greater than maximum number in range for set1.");
+        this.errors.push("Smallest normal number in game is equal to or greater than largest normal number in game.");
       }
     }
 
     if(numOfRandIntsNeededSet1IntTest) {
       if( parseInt(numOfRandIntsNeededSet1) < 1 ) {
-        this.errors.push("Number of random integers wanted for set1 is less than 1.");
+        this.errors.push("Amount of normal numbers to draw per game is less than 1.");
       }
     }
   
     if(numOfRandIntsNeededSet1IntTest && maxCountSet1IntTest) {
       if( parseInt(numOfRandIntsNeededSet1) >= parseInt(maxCountSet1) ) {
-        this.errors.push("Number of random integers wanted for set1 is greater than or equal to maximum number in range for set1.");
+        this.errors.push("Amount of normal numbers to draw per game is greater than or equal to largest normal number in game.");
       }
     }
     
@@ -58,32 +58,32 @@ let errorsList = {
       var numOfRandIntsNeededSet2IntTest = /^-?\d+$/.test(numOfRandIntsNeededSet2);
 
       if(minCountSet2IntTest === false) {
-        this.errors.push("minCountSet2 is not an integer.")
+        this.errors.push("Smallest special number is not an integer.")
       }
 
       if(maxCountSet2IntTest === false) {
-        this.errors.push("maxCountSet2 is not an integer.")
+        this.errors.push("Largest special number is not an integer.")
       }
 
       if(numOfRandIntsNeededSet2IntTest === false) {
-        this.errors.push("numOfRandIntsNeededSet2 is not an integer.")
+        this.errors.push("Amount of special numbers to draw is not an integer.")
       }
 
       if(minCountSet2IntTest && maxCountSet2IntTest) {
         if( parseInt(minCountSet2) >= parseInt(maxCountSet2) ) {
-          this.errors.push("Minimum number in range is equal to or greater than maximum number in range for set2.");
+          this.errors.push("Smallest special number in game is equal to or greater than largest special number in game.");
         }
       }
 
       if(numOfRandIntsNeededSet2IntTest) {
         if(parseInt(numOfRandIntsNeededSet2) < 1) {
-          this.errors.push("Number of random integers wanted for set2 is less than 1.");
+          this.errors.push("Amount of special numbers to draw is less than 1.");
         }
       }
       
       if(numOfRandIntsNeededSet2IntTest && maxCountSet2IntTest) {
         if( parseInt(numOfRandIntsNeededSet2) >= parseInt(maxCountSet2) ) {
-          this.errors.push("Number of random integers wanted for set2 is greater than or equal to maximum number in range for set2.");
+          this.errors.push("Amount of special numbers to draw per game is greater than or equal to largest special number in game.");
         }
       }
     }

@@ -84,5 +84,5 @@ on “Generate lotto numbers” again.
 
 ## Background 
 At the moment this project is still a work in progress and only has basic
-styling to separate random numbers generated. The intention is to add
-clearer error messages and improved styling.  
+styling to separate random numbers generated. The intention is to improve
+styling.  
