@@ -204,23 +204,25 @@ let handlers = {
     // clear any error messages from errors list
     this.clearErrorsAndOutputDiv();
 
-    let numOfGames = document.getElementById("numOfGames").value;//4
+    let numOfGames = document.getElementById("numOfGames").value;
 
-    let sort = document.getElementById("sort").checked;//true; // Boolean to see if user wants random ints to be sorted
+    // Boolean to see if user wants random ints to be sorted
+    let sort = document.getElementById("sort").checked;
     
-    let secondSetNeeded = document.getElementById("secondSetNeeded").checked;//true; // Boolean to see if user wants 2 sets of random ints per game
+    // Boolean to see if user wants 2 sets of random ints per game
+    let secondSetNeeded = document.getElementById("secondSetNeeded").checked;
     
-    let minCountSet1 = document.getElementById("minCountSet1").value;//1;
+    let minCountSet1 = document.getElementById("minCountSet1").value;
 
-    let maxCountSet1 = document.getElementById("maxCountSet1").value;//35;
+    let maxCountSet1 = document.getElementById("maxCountSet1").value;
 
-    let numOfRandIntsNeededSet1 = document.getElementById("numOfRandIntsNeededSet1").value;// 36;
+    let numOfRandIntsNeededSet1 = document.getElementById("numOfRandIntsNeededSet1").value;
 
-    let minCountSet2 = document.getElementById("minCountSet2").value;// 1;
+    let minCountSet2 = document.getElementById("minCountSet2").value;
 
-    let maxCountSet2 = document.getElementById("maxCountSet2").value;//20;
+    let maxCountSet2 = document.getElementById("maxCountSet2").value;
 
-    let numOfRandIntsNeededSet2 = document.getElementById("numOfRandIntsNeededSet2").value;//21;
+    let numOfRandIntsNeededSet2 = document.getElementById("numOfRandIntsNeededSet2").value;
   
     try {
       // Validate input from test boxes
@@ -260,9 +262,6 @@ let handlers = {
             view.addRandNum(randNum);
           });
 
-          console.log(`Game ${count}`);
-          console.log(`Random ints chosen set 1: ${randomNumsSet1}`);
-
           if (secondSetNeeded === true) {
             view.addTableData();
 
@@ -271,7 +270,6 @@ let handlers = {
             randomNumsSet2.forEach(function(randNum) {
               view.addRandNum(randNum);
             });
-            console.log(`Random ints chosen set 2: ${randomNumsSet2}`);
           }
         }
       }
@@ -335,34 +333,6 @@ function randomIntsFromIntsArray(minCount, maxCount, numOfRandIntsNeeded, sort) 
 
   return randIntsChosen;
 }
-
-//function generateLottoNumbers() {
-  // If there are error messages to show
-  //if (errors.length > 0) {
-    
-  //}
-  /*
-  else {
-    if (secondSetNeeded === true) {
-      for(let count = 1; count <= numOfGames; count++) {
-        console.log(`
-        Game ${count} 
-        Random ints chosen set 1: ${randomIntsFromIntsArray(minCountSet1, maxCountSet1, numOfRandIntsNeededSet1, sort)}
-        Random ints chosen set 2: ${randomIntsFromIntsArray(minCountSet2, maxCountSet2, numOfRandIntsNeededSet2, sort)}
-        `);
-      }
-    }
-    else {
-      for(let count = 1; count <= numOfGames; count++) {
-        console.log(`
-        Game ${count} 
-        Random ints chosen set 1: ${randomIntsFromIntsArray(minCountSet1, maxCountSet1, numOfRandIntsNeededSet1, sort)}
-        `);
-      }
-    }
-  }
-  */
-//}
 
 document.querySelector('button').addEventListener("click", (event) => {
   // Get the element that was clicked on
