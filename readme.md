@@ -82,7 +82,21 @@ If you wish to clear all inputs and error messages, click on the
 If you wish to generate new lotto numbers using the same inputs, click
 on “Generate lotto numbers” again. 
 
-## Background 
+## Background
+Also included in this repo is randNumsBackendOnly.js. A backend only,
+random number generator with hardcoded input values, written in Node.js.
+randNumsBackendOnly.js was how this project started out as, a backend only
+commandline program.
+If you wish to use randNumsBackendOnly.js, you will need Node.js installed.
+It can be downloaded from the official site:
+  
+  https://nodejs.org/en/
+
+Once Node.js is installed, navigate to the directory where you have installed 
+randNumsBackendOnly.js. Open a terminal window at that directory and type in:
+
+  node randNumsBackendOnly.js.
+
 At the moment this project is still a work in progress and only has basic
 styling to separate random numbers generated. The intention is to improve
-styling.  
+styling for the frontend.  
