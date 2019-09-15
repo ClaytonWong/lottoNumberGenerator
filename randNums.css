@@ -6,6 +6,9 @@
 div {
   margin-left: auto;
   margin-right: auto;
+}
+
+#form, #output_div {
   max-width: 300px;
 }
 
@@ -29,7 +32,7 @@ div {
 .underline, .big_paragraph,
 .small_paragraph, .step, .field,
 .error
- {
+{
   margin-top: 10px;
 }
 
@@ -73,6 +76,10 @@ button:hover {
 .generate_numbers {
   margin-left: 10px;
   background-color: lightskyblue;
+}
+
+ol {
+  margin:0 0 0 20px;
 }
 
 table {
