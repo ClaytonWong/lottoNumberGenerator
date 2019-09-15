@@ -169,11 +169,17 @@ let view = {
 
     // Get to last tableData
     var lastTableData = document.getElementsByTagName('td')[tableDataLength - 1];
-
+    /*
     var span = document.createElement('span');
     span.innerText = randNum;
 
     lastTableData.appendChild(span);
+    */
+    var ballDiv = document.createElement('div');
+    ballDiv.innerText = randNum;
+    ballDiv.className = "ballDiv";
+
+    lastTableData.appendChild(ballDiv);
   },
   clearOutputDiv: function() {
     var outputDiv = document.getElementById('output_div');
