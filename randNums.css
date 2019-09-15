@@ -32,6 +32,12 @@ div {
   margin-top: 10px;
 }
 
+.text_input {
+  margin-top: 2px;
+  margin-bottom: 5px;
+  width: 98%;
+}
+
 .button_bar {
   display: flex;
   align-items: center;
