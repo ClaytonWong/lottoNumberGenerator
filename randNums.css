@@ -32,11 +32,17 @@ div {
   margin-top: 10px;
 }
 
-.text_input {
+input[type=text] {
   margin-top: 2px;
   margin-bottom: 3px;
   width: 97%;
 }
+
+input[type=checkbox] {
+  /*Move checkbox slightly lower*/
+  position: relative; 
+  top: 3px;
+} 
 
 .button_bar {
   display: flex;
