@@ -74,7 +74,7 @@ At the input “How many special numbers do you need?”, enter an integer
 that is greater than zero but smaller than the number you entered at step 8.
 
 Step 10:
-Click on the button “Generate lotto numbers”.
+Click on the button “Generate lotto numbers”. Then scroll down.
 If 1 or more error messages appear, try to make corrections at the
 corresponding inputs then click on “Generate lotto numbers” again. 
 If you wish to clear all inputs and error messages, click on the
