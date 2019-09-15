@@ -32,6 +32,36 @@ div {
   margin-top: 10px;
 }
 
+.button_bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+button {
+  display: inline-block;
+  margin-top: 5px;
+  border-radius: 5px;
+  width: 125px;
+  height: 60px;
+  font-size: 15px;
+}
+
+button:hover {
+  border: 1px solid black;
+}
+
+.reset_button {
+  background-color: yellow;
+}
+
+.generate_numbers {
+  margin-left: 10px;
+  background-color: lightskyblue;
+}
+
 table {
   border-collapse: collapse;
 }
