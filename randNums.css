@@ -26,7 +26,8 @@ div {
   text-decoration: underline;
 }
 
-.underline, .big_paragraph, .field
+.underline, .big_paragraph,
+.small_paragraph, .step, .field
  {
   margin-top: 10px;
 }
