@@ -12,15 +12,12 @@ div {
 }
 
 table {
-  border: solid 1px brown;
+  border-collapse: collapse;
 }
 
-th {
-  border: solid 1px green;
-}
-
-td {
-  border: solid 1px red;
+th, td {
+  border: solid 1px black;
+  padding: 4px;
 }
 
 .ballDiv {
