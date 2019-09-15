@@ -25,6 +25,8 @@ It has the following features:
    randNums.html
 
 ## Usage instructions
+Make sure JavaScript is enabled on your browser.
+          
 At the text-box like inputs, such as “How many games do you want to play?”,
 only integers are valid.
 The “Reset” button can be used any time to clear all inputs and error
