@@ -108,9 +108,7 @@ let view = {
     // under header
     errorsList.errors.forEach(function(error) {
       var errorPara = document.createElement('p');
-      var errorText = error;
-
-      errorPara.textContent = errorText;
+      errorPara.textContent = error;
       
       outputDiv.appendChild(errorPara);
     }, this)  // need to include 'this' here to refer to
