@@ -97,20 +97,25 @@ let view = {
   displayErrors: function() {
     this.clearOutputDiv(); // Clear outputDiv first
 
-    // Put header in error div
+    // Put header in outputDiv
     var errorHeader = document.createElement('h3');
     errorHeader.textContent = 'Error! 1 or more invalid inputs given!';
 
     var outputDiv = document.getElementById('output_div');
     outputDiv.appendChild(errorHeader);
 
-    // For each error, create a paragraph in outputDiv
-    // under header
+    // Put ordered list in outputDiv
+    var errorOrderedList = document.createElement('ol');
+    outputDiv.appendChild(errorOrderedList);
+
+    // For each error, create a list item in outputDiv
+    // ordered list under header
     errorsList.errors.forEach(function(error) {
-      var errorPara = document.createElement('p');
-      errorPara.textContent = error;
+      var errorLi = document.createElement('li');
+      errorLi.textContent = error;
+      errorLi.className = "error";
       
-      outputDiv.appendChild(errorPara);
+      errorOrderedList.appendChild(errorLi);
     }, this)  // need to include 'this' here to refer to
               // object in errorsList method in view object
               // this refers to view object

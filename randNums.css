@@ -27,7 +27,8 @@ div {
 }
 
 .underline, .big_paragraph,
-.small_paragraph, .step, .field
+.small_paragraph, .step, .field,
+.error
  {
   margin-top: 10px;
 }
