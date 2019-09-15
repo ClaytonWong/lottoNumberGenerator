@@ -13,3 +13,10 @@ Wed 2019 Aug 14
 ---------------
 Fixed above problem by changing the form opening and closing tags to div
 tags. This is because the lotto number generator is not a form.
+
+Sun 2019 Sep 15
+---------------
+When using spans with rounded borders to hold normal and special numbers,
+the single digit numbers are in an ellipse and not a circle. To fix This
+problem, I had to use a div instead of a span to hold the normal and 
+special numbers.
